@@ -1,0 +1,44 @@
+:root {
+  /* Brand Colors */
+  --primary-blue: #168FEF;
+  --deep-blue: #0B1B35;
+  --light-blue: #EAF5FF;
+  --bg-color: #F7FAFD;
+  --white: #FFFFFF;
+  --text-color: #152238;
+
+  /* Theme mappings */
+  --color-bg: var(--bg-color);
+  --color-bg-card: var(--white);
+  --color-border: #E2E8F0;
+  --color-border-hover: var(--primary-blue);
+  
+  --color-text-primary: var(--text-color);
+  --color-text-secondary: #475569;
+  --color-text-muted: #94A3B8;
+
+  --color-primary: var(--primary-blue);
+  --color-primary-hover: #127cd0;
+  --color-primary-light: var(--light-blue);
+
+  --gradient-brand: linear-gradient(135deg, var(--primary-blue), #0B5CBB);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+  --shadow-premium: 0 20px 25px -5px rgba(11, 27, 53, 0.08), 0 8px 10px -6px rgba(11, 27, 53, 0.05);
+  --shadow-glow: 0 0 30px rgba(22, 143, 239, 0.15);
+
+  /* Layout & Border Radii */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 450ms cubic-bezier(0.4, 0, 0.2, 1);
+}
