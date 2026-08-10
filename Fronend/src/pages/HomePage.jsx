@@ -8,23 +8,45 @@ import {
 } from 'lucide-react';
 import { MainLayout } from '../components/layout/MainLayout';
 
+// Import local assets matching the user's reference design
+import logoImg from '../assets/logo.png';
+import mainImg from '../assets/main.jpg';
+import heroImg from '../assets/hero.png';
+import screenshotHero from '../assets/unnamed.jpg'; // Hero Laptop screen
+import showcaseVocab from '../assets/unnamed (7).jpg'; // Showcase 1 Vocabulary
+import showcaseTranslate from '../assets/unnamed (9).jpg'; // Showcase 3 Translation
+import showcaseDict from '../assets/034e8958-037f-4339-bf34-0f25604d9f64.png'; // Showcase 4 Left Dictionary
+import showcaseChat from '../assets/29e2f86e-a1dd-49c5-b0f3-a703257f9de9.png'; // Showcase 4 Right AI Chat
+import showcaseDashboard from '../assets/unnamed (10).jpg'; // Showcase 5 Left Dashboard
+import showcaseGamify from '../assets/unnamed (8).jpg'; // Showcase 5 Right Gamification/Leaderboard
+
+// Import technology SVGs
+import awsS3Logo from '../assets/aws-s3.svg';
+import azureLogo from '../assets/azure.svg';
+import deepseekLogo from '../assets/deepseek.svg';
+import postgresqlLogo from '../assets/postgresql.svg';
+import dotnetLogo from '../assets/dotnet.svg';
+import tailwindcssLogo from '../assets/tailwindcss.svg';
+import kubernetesLogo from '../assets/kubernetes.svg';
+import reactLogo from '../assets/react.svg';
+
 export function HomePage() {
   const [emailSub, setEmailSub] = useState('');
   const [subbed, setSubbed] = useState(false);
 
   // 1. Double-Bezel features grid data
   const premiumFeatures = [
-    { title: 'Học cùng AI', desc: 'Cá nhân hóa lộ trình học, giải thích ngữ pháp từ câu văn thực tế.', icon: Cpu },
-    { title: 'Từ vựng thông minh', desc: 'Hệ thống lưu từ vựng tự động, hỗ trợ tra cứu Pinyin tức thì.', icon: BookOpen },
-    { title: 'Tài liệu đa dạng', desc: 'Tải lên sách, tài liệu PDF, truyện đọc tiếng Trung không giới hạn.', icon: FileText },
-    { title: 'Theo dõi tiến độ', desc: 'Báo cáo chi tiết thời gian học, biểu đồ XP và streak trực quan.', icon: Activity }
+    { title: 'Học cùng AI', desc: 'Cá nhân hóa lộ trình, sửa lỗi câu.', icon: Cpu },
+    { title: 'Từ vựng thông minh', desc: 'Học thông qua ghi nhớ lâu dài.', icon: BookOpen },
+    { title: 'Tài liệu đa dạng', desc: 'Nguồn tài liệu, tin tức cập nhật.', icon: FileText },
+    { title: 'Theo dõi tiến độ', desc: 'Báo cáo chi tiết, thống kê trực quan.', icon: Activity }
   ];
 
   const painPoints = [
-    { title: 'Khó ghi nhớ từ vựng', desc: 'Quên nhanh sau khi học, thiếu ngữ cảnh thực tế của từ vựng.', icon: ShieldAlert },
-    { title: 'Phát âm không chuẩn', desc: 'Thiếu người sửa lỗi phát âm và phản hồi thanh điệu sai.', icon: Volume2 },
-    { title: 'Tài liệu hạn chế', desc: 'Sách giáo khoa khô khan, nguồn tài liệu học không phong phú.', icon: HelpCircle },
-    { title: 'Thiếu động lực học', desc: 'Dễ nản chí, không có mục tiêu rõ ràng và người đồng hành.', icon: Flame }
+    { title: 'Khó ghi nhớ từ vựng', desc: 'Quên nhanh, không nhớ ngữ cảnh.', icon: ShieldAlert },
+    { title: 'Phát âm không chuẩn', desc: 'Thiếu phản hồi, tự học khó khăn.', icon: Volume2 },
+    { title: 'Tài liệu hạn chế', desc: 'Nguồn học không phong phú, cổ.', icon: HelpCircle },
+    { title: 'Thiếu động lực', desc: 'Dễ nản chí, không có mục tiêu.', icon: Flame }
   ];
 
   const handleSubscribe = (e) => {
@@ -57,64 +79,54 @@ export function HomePage() {
               </p>
               
               <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
-                <a href="#" className="btn btn-primary" style={{ padding: '0.85rem 1.75rem', borderRadius: 'var(--radius-full)' }}>
+                <a href="https://hanora.id.vn" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '0.85rem 1.75rem', borderRadius: 'var(--radius-full)' }}>
                   Bắt đầu học miễn phí
                 </a>
-                <a href="#" className="btn btn-outline" style={{ padding: '0.85rem 1.75rem', borderRadius: 'var(--radius-full)' }}>
+                <a href="https://hanora.id.vn" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ padding: '0.85rem 1.75rem', borderRadius: 'var(--radius-full)' }}>
                   Khám phá Hanora
                 </a>
               </div>
             </div>
 
-            {/* Right Column Showcase Image */}
-            <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
+            {/* Right Column Showcase Image with live assets */}
+            <div style={{ display: 'flex', justifyContent: 'center', position: 'relative', width: '100%' }}>
               <div style={{ 
+                position: 'relative', 
                 width: '100%', 
-                maxWidth: '480px', 
-                height: '320px', 
-                backgroundColor: 'var(--color-primary-light)', 
-                borderRadius: 'var(--radius-xl)', 
+                maxWidth: '540px', 
                 display: 'flex', 
-                alignItems: 'center', 
-                justifyContent: 'center',
-                boxShadow: 'var(--shadow-premium)',
-                border: '1px solid var(--color-border)',
-                overflow: 'hidden'
+                alignItems: 'center',
+                paddingRight: '60px' // Space for floating overlapping mascot
               }}>
-                <div style={{ textAlign: 'center', padding: '2rem' }}>
-                  <Laptop size={72} style={{ color: 'var(--primary-blue)', marginBottom: '1rem' }} />
-                  <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', fontWeight: 'bold' }}>
-                    [Laptop Showcase Mockup: Bảng điều khiển Hanora]
-                  </p>
-                </div>
-
-                {/* Floating mascot representation */}
-                <div className="float-animation" style={{ 
-                  position: 'absolute', 
-                  bottom: '-10px', 
-                  right: '-10px', 
-                  backgroundColor: 'var(--white)', 
-                  border: '1px solid var(--color-border)', 
-                  borderRadius: 'var(--radius-lg)', 
-                  padding: '0.75rem 1.25rem', 
-                  boxShadow: 'var(--shadow-lg)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.75rem',
-                  zIndex: 10
-                }}>
-                  <span style={{ fontSize: '2rem' }}>🐼</span>
-                  <div style={{ textAlign: 'left' }}>
-                    <span style={{ fontSize: '0.7rem', fontWeight: 'bold', textTransform: 'uppercase', color: 'var(--color-primary)', display: 'block' }}>Mascot</span>
-                    <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--deep-blue)' }}>Panda Mascot</span>
+                {/* Laptop screen */}
+                <div className="screenshot-frame" style={{ width: '100%', zIndex: 1 }}>
+                  <div className="screenshot-bar">
+                    <div className="screenshot-dot" style={{ backgroundColor: '#ef4444' }}></div>
+                    <div className="screenshot-dot" style={{ backgroundColor: '#eab308' }}></div>
+                    <div className="screenshot-dot" style={{ backgroundColor: '#22c55e' }}></div>
                   </div>
+                  <img src={screenshotHero} alt="Hanora Dashboard" style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} />
                 </div>
+                
+                {/* Mascot panda */}
+                <img src={heroImg} alt="Panda Mascot" className="float-animation" style={{
+                  width: '150px',
+                  height: '150px',
+                  borderRadius: '50%',
+                  objectFit: 'cover',
+                  position: 'absolute',
+                  bottom: '-20px',
+                  right: '-10px',
+                  border: '4px solid var(--white)',
+                  boxShadow: 'var(--shadow-lg)',
+                  zIndex: 10
+                }} />
 
                 {/* Floating XP / Streak status badge */}
                 <div style={{ 
                   position: 'absolute', 
-                  top: '1.5rem', 
-                  left: '-1.5rem', 
+                  top: '15%', 
+                  left: '-25px', 
                   backgroundColor: 'var(--white)', 
                   border: '1px solid var(--color-border)', 
                   borderRadius: 'var(--radius-md)', 
@@ -124,13 +136,13 @@ export function HomePage() {
                   flexDirection: 'column',
                   gap: '0.25rem',
                   textAlign: 'left',
-                  zIndex: 10
+                  zIndex: 15
                 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.8rem', fontWeight: 'bold', color: 'var(--color-primary)' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--color-primary)' }}>
                     <Award size={14} />
                     <span>XP 250</span>
                   </div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--color-text-secondary)' }}>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--color-text-secondary)', fontWeight: 'bold' }}>
                     🔥 Streak: 5 ngày
                   </div>
                 </div>
@@ -205,51 +217,131 @@ export function HomePage() {
             <p style={{ color: 'var(--color-text-secondary)' }}>Mô hình liên kết các hệ thống con cốt lõi trong hệ sinh thái.</p>
           </div>
 
-          <div className="ecosystem-container">
-            {/* Top Node */}
-            <div className="ecosystem-node" style={{ borderColor: 'var(--color-primary)', boxShadow: 'var(--shadow-glow)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center', color: 'var(--color-primary)', fontWeight: 'bold' }}>
+          <div style={{ position: 'relative', maxWidth: '900px', margin: '0 auto', padding: '2rem 0' }}>
+            
+            {/* AI Engine Top Node */}
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2.5rem', position: 'relative', zIndex: 10 }}>
+              <div className="ecosystem-node" style={{ 
+                borderColor: 'var(--color-primary)', 
+                boxShadow: 'var(--shadow-glow)',
+                width: '160px',
+                padding: '0.6rem 1rem',
+                borderRadius: 'var(--radius-md)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.5rem',
+                fontWeight: 'bold',
+                color: 'var(--color-primary)',
+                backgroundColor: 'var(--color-bg-card)'
+              }}>
                 <Sparkles size={16} />
                 <span>AI Engine</span>
               </div>
             </div>
 
-            {/* Vertical connector line */}
-            <div style={{ width: '2px', height: '20px', backgroundColor: 'var(--color-border)' }}></div>
-
-            {/* Center Node */}
-            <div className="ecosystem-center">
-              Hanora Platform
-            </div>
-
-            {/* Sub-system Row */}
-            <div className="ecosystem-row" style={{ marginTop: '1rem' }}>
+            {/* Middle Grid */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 120px 1fr', alignItems: 'center', gap: '2rem', position: 'relative' }}>
               
-              {/* Left nodes column */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                <div className="ecosystem-node">
-                  <h4 style={{ fontWeight: 'bold', color: 'var(--deep-blue)', fontSize: '0.95rem', marginBottom: '0.25rem' }}>Thư viện tài liệu</h4>
-                  <p style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', margin: 0 }}>Kho sách, tài liệu, giáo trình PDF trực quan.</p>
+              {/* Left Column (2 nodes) */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', alignItems: 'flex-end', zIndex: 10 }}>
+                {/* Node 1: Thư viện tài liệu */}
+                <div className="ecosystem-node" style={{ textAlign: 'left', width: '280px', display: 'flex', gap: '0.75rem', alignItems: 'flex-start', backgroundColor: 'var(--color-bg-card)' }}>
+                  <div style={{ color: 'var(--color-primary)', marginTop: '0.2rem' }}>
+                    <FileText size={18} />
+                  </div>
+                  <div>
+                    <h4 style={{ fontWeight: 'bold', color: 'var(--deep-blue)', fontSize: '0.95rem', margin: '0 0 0.25rem' }}>Thư viện tài liệu</h4>
+                    <p style={{ fontSize: '0.75rem', color: 'var(--color-text-secondary)', margin: 0, lineHeight: '1.4' }}>
+                      Thư viện tài liệu, chọn tài liệu học cho mình.
+                    </p>
+                  </div>
                 </div>
-                <div className="ecosystem-node">
-                  <h4 style={{ fontWeight: 'bold', color: 'var(--deep-blue)', fontSize: '0.95rem', marginBottom: '0.25rem' }}>Công cụ học tập</h4>
-                  <p style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', margin: 0 }}>Từ vựng, Flashcards, SRS, Theo dõi tiến độ.</p>
+
+                {/* Node 2: Công cụ học tập */}
+                <div className="ecosystem-node" style={{ textAlign: 'left', width: '280px', display: 'flex', gap: '0.75rem', alignItems: 'flex-start', backgroundColor: 'var(--color-bg-card)' }}>
+                  <div style={{ color: 'var(--color-primary)', marginTop: '0.2rem' }}>
+                    <Layers size={18} />
+                  </div>
+                  <div>
+                    <h4 style={{ fontWeight: 'bold', color: 'var(--deep-blue)', fontSize: '0.95rem', margin: '0 0 0.25rem' }}>Công cụ học tập</h4>
+                    <p style={{ fontSize: '0.75rem', color: 'var(--color-text-secondary)', margin: 0, lineHeight: '1.4' }}>
+                      Công cụ học tập: SRS ôn tập, kiểm tra, sửa lỗi.
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              {/* Right nodes column */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                <div className="ecosystem-node">
-                  <h4 style={{ fontWeight: 'bold', color: 'var(--deep-blue)', fontSize: '0.95rem', marginBottom: '0.25rem' }}>Cộng đồng</h4>
-                  <p style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', margin: 0 }}>Giao lưu học tập cùng cộng đồng trên toàn quốc.</p>
-                </div>
-                <div className="ecosystem-node">
-                  <h4 style={{ fontWeight: 'bold', color: 'var(--deep-blue)', fontSize: '0.95rem', marginBottom: '0.25rem' }}>Đăng ký học tập</h4>
-                  <p style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', margin: 0 }}>Chọn bài học, tài liệu của riêng mình để học.</p>
+              {/* Center Circle: Hanora */}
+              <div style={{ display: 'flex', justifyContent: 'center', zIndex: 10 }}>
+                <div className="ecosystem-center" style={{ 
+                  width: '90px', 
+                  height: '90px', 
+                  borderRadius: '50%', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center',
+                  fontWeight: 'bold',
+                  fontSize: '1.1rem',
+                  padding: 0
+                }}>
+                  Hanora
                 </div>
               </div>
+
+              {/* Right Column (2 nodes) */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', alignItems: 'flex-start', zIndex: 10 }}>
+                {/* Node 3: Cộng đồng */}
+                <div className="ecosystem-node" style={{ textAlign: 'left', width: '280px', display: 'flex', gap: '0.75rem', alignItems: 'flex-start', backgroundColor: 'var(--color-bg-card)' }}>
+                  <div style={{ color: 'var(--color-primary)', marginTop: '0.2rem' }}>
+                    <Users size={18} />
+                  </div>
+                  <div>
+                    <h4 style={{ fontWeight: 'bold', color: 'var(--deep-blue)', fontSize: '0.95rem', margin: '0 0 0.25rem' }}>Cộng đồng</h4>
+                    <p style={{ fontSize: '0.75rem', color: 'var(--color-text-secondary)', margin: 0, lineHeight: '1.4' }}>
+                      Cộng đồng người học tiếng Trung đông đảo.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Node 4: Đăng ký học tập */}
+                <div className="ecosystem-node" style={{ textAlign: 'left', width: '280px', display: 'flex', gap: '0.75rem', alignItems: 'flex-start', backgroundColor: 'var(--color-bg-card)' }}>
+                  <div style={{ color: 'var(--color-primary)', marginTop: '0.2rem' }}>
+                    <Database size={18} />
+                  </div>
+                  <div>
+                    <h4 style={{ fontWeight: 'bold', color: 'var(--deep-blue)', fontSize: '0.95rem', margin: '0 0 0.25rem' }}>Đăng ký học tập</h4>
+                    <p style={{ fontSize: '0.75rem', color: 'var(--color-text-secondary)', margin: 0, lineHeight: '1.4' }}>
+                      Chọn lộ trình học phù hợp nhất với bản thân.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* SVG Connecting Lines - Absolute positioned inside the middle grid */}
+              <svg style={{ 
+                position: 'absolute', 
+                top: '-70px', 
+                left: 0, 
+                width: '100%', 
+                height: 'calc(100% + 70px)', 
+                pointerEvents: 'none', 
+                zIndex: 1 
+              }} viewBox="0 0 900 350">
+                {/* Vertical line from AI Engine to Hanora center */}
+                <path d="M 450,20 L 450,140" stroke="rgba(22, 143, 239, 0.25)" strokeWidth="2" fill="none" />
+                
+                {/* Left side branch path: center -> left -> split up/down */}
+                <path d="M 405,185 L 355,185 A 15 15 0 0 1 340,170 L 340,115 A 15 15 0 0 0 325,100 L 290,100" stroke="rgba(22, 143, 239, 0.25)" strokeWidth="2" fill="none" />
+                <path d="M 355,185 A 15 15 0 0 0 340,200 L 340,255 A 15 15 0 0 1 325,270 L 290,270" stroke="rgba(22, 143, 239, 0.25)" strokeWidth="2" fill="none" />
+
+                {/* Right side branch path: center -> right -> split up/down */}
+                <path d="M 495,185 L 545,185 A 15 15 0 0 0 560,170 L 560,115 A 15 15 0 0 1 575,100 L 610,100" stroke="rgba(22, 143, 239, 0.25)" strokeWidth="2" fill="none" />
+                <path d="M 545,185 A 15 15 0 0 1 560,200 L 560,255 A 15 15 0 0 0 575,270 L 610,270" stroke="rgba(22, 143, 239, 0.25)" strokeWidth="2" fill="none" />
+              </svg>
 
             </div>
+
           </div>
         </section>
 
@@ -265,7 +357,7 @@ export function HomePage() {
               <div>
                 <h3 style={{ fontSize: '1.8rem', fontWeight: 'bold', color: 'var(--deep-blue)', marginBottom: '1rem' }}>Quản lý từ vựng hiệu quả</h3>
                 <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6', fontSize: '1rem' }}>
-                  Tra cứu và ôn tập từ vựng dễ dàng với kho tri thức thông minh. Lưu trữ và phân loại các từ mới theo các cấp độ để theo dõi trạng thái học tập.
+                  Tra, lưu và ôn tập từ vựng dễ dàng với kho tri thức thông minh.
                 </p>
               </div>
               <div className="screenshot-frame">
@@ -274,9 +366,7 @@ export function HomePage() {
                   <div className="screenshot-dot" style={{ backgroundColor: '#eab308' }}></div>
                   <div className="screenshot-dot" style={{ backgroundColor: '#22c55e' }}></div>
                 </div>
-                <div className="screenshot-content">
-                  [Screenshot Giao Diện Từ Vựng]
-                </div>
+                <img src={showcaseVocab} alt="Quản lý từ vựng" style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} />
               </div>
             </div>
 
@@ -286,7 +376,7 @@ export function HomePage() {
                 {/* Simulated mobile mockups */}
                 <div style={{ width: '130px', height: '220px', backgroundColor: '#0f172a', border: '3px solid #1e293b', borderRadius: 'var(--radius-md)', padding: '0.75rem', position: 'relative' }}>
                   <div style={{ width: '40px', height: '10px', backgroundColor: '#1e293b', borderRadius: 'var(--radius-full)', margin: '0 auto 0.75rem' }}></div>
-                  <div style={{ height: 'calc(100% - 25px)', backgroundColor: 'var(--color-primary-light)', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyCenter: 'center', justifyContent: 'center', border: '1px solid var(--color-border)' }}>
+                  <div style={{ height: 'calc(100% - 25px)', backgroundColor: 'var(--color-primary-light)', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--color-border)' }}>
                     <span style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 'var(--deep-blue)' }}>你好</span>
                   </div>
                   <span style={{ position: 'absolute', bottom: '1.25rem', left: '50%', transform: 'translateX(-50%)', fontSize: '0.65rem', color: 'var(--color-text-muted)', fontWeight: 'bold' }}>Chế độ Xem</span>
@@ -304,7 +394,7 @@ export function HomePage() {
               <div>
                 <h3 style={{ fontSize: '1.8rem', fontWeight: 'bold', color: 'var(--deep-blue)', marginBottom: '1rem' }}>Học với Flashcard thông minh</h3>
                 <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6', fontSize: '1rem' }}>
-                  Tập trung học với nhiều chế độ xem phong phú khác nhau, hỗ trợ lật thẻ nhanh chóng và phát âm bản xứ chuẩn chỉnh.
+                  Tập trung học với nhiều chế độ thông minh.
                 </p>
               </div>
             </div>
@@ -312,9 +402,9 @@ export function HomePage() {
             {/* Showcase 3: Translation Workspace */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', alignItems: 'center', textAlign: 'left' }}>
               <div>
-                <h3 style={{ fontSize: '1.8rem', fontWeight: 'bold', color: 'var(--deep-blue)', marginBottom: '1rem' }}>Không gian Dịch thông minh</h3>
+                <h3 style={{ fontSize: '1.8rem', fontWeight: 'bold', color: 'var(--deep-blue)', marginBottom: '1rem' }}>Không gian Dịch Thông minh</h3>
                 <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6', fontSize: '1rem' }}>
-                  Đọc và dịch tài liệu PDF, trang web với sự hỗ trợ đắc lực của mô hình AI. Nhấp vào từ vựng để tra nghĩa trực tiếp trên văn bản đang học.
+                  Đọc và dịch tài liệu PDF, web với sự hỗ trợ của AI.
                 </p>
               </div>
               <div className="screenshot-frame">
@@ -323,32 +413,34 @@ export function HomePage() {
                   <div className="screenshot-dot" style={{ backgroundColor: '#eab308' }}></div>
                   <div className="screenshot-dot" style={{ backgroundColor: '#22c55e' }}></div>
                 </div>
-                <div className="screenshot-content" style={{ height: '240px' }}>
-                  [Screenshot Giao Diện Workspace Đọc/Dịch và AI Chat]
-                </div>
+                <img src={showcaseTranslate} alt="Không gian dịch thông minh" style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} />
               </div>
             </div>
 
             {/* Showcase 4: Dictionary & Chat Side-by-Side */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem', textAlign: 'left' }}>
               
-              <div className="card" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                <h3 style={{ fontSize: '1.35rem', color: 'var(--deep-blue)', fontWeight: 'bold', margin: 0 }}>Từ điển AI chuyên sâu</h3>
-                <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.85rem', lineHeight: '1.5', margin: 0 }}>
-                  Định nghĩa chi tiết từ Hán kèm câu ví dụ thực tế và giải thích ngữ pháp bổ trợ.
-                </p>
-                <div style={{ backgroundColor: 'var(--color-primary-light)', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-md)', height: '160px', display: 'flex', alignItems: 'center', justifyCenter: 'center', justifyContent: 'center', color: 'var(--color-text-muted)', fontSize: '0.8rem' }}>
-                  [Screenshot Từ Điển Chi Tiết]
+              <div className="card" style={{ padding: '1rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <div style={{ padding: '1rem 1rem 0' }}>
+                  <h3 style={{ fontSize: '1.35rem', color: 'var(--deep-blue)', fontWeight: 'bold', margin: '0 0 0.5rem' }}>Từ điển AI chuyên sâu</h3>
+                  <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.85rem', lineHeight: '1.5', margin: 0 }}>
+                    Tra nghĩa từ hoặc câu tiếng Trung kèm dịch nghĩa lịch sự.
+                  </p>
+                </div>
+                <div style={{ border: '1px solid var(--color-border)', borderRadius: 'var(--radius-md)', overflow: 'hidden', boxShadow: 'var(--shadow-sm)', height: '200px' }}>
+                  <img src={showcaseDict} alt="Từ điển AI chuyên sâu" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                 </div>
               </div>
 
-              <div className="card" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                <h3 style={{ fontSize: '1.35rem', color: 'var(--deep-blue)', fontWeight: 'bold', margin: 0 }}>Trợ lý AI 24/7</h3>
-                <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.85rem', lineHeight: '1.5', margin: 0 }}>
-                  Trò chuyện, hỏi ngữ pháp hoặc yêu cầu AI dịch thuật tự động thông qua giao diện chat DeepSeek.
-                </p>
-                <div style={{ backgroundColor: 'var(--color-primary-light)', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-md)', height: '160px', display: 'flex', alignItems: 'center', justifyCenter: 'center', justifyContent: 'center', color: 'var(--color-text-muted)', fontSize: '0.8rem' }}>
-                  [Screenshot AI Chat UI]
+              <div className="card" style={{ padding: '1rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <div style={{ padding: '1rem 1rem 0' }}>
+                  <h3 style={{ fontSize: '1.35rem', color: 'var(--deep-blue)', fontWeight: 'bold', margin: '0 0 0.5rem' }}>Trợ lý AI 24/7</h3>
+                  <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.85rem', lineHeight: '1.5', margin: 0 }}>
+                    Modern AI chat UI powered by DeepSeek API.
+                  </p>
+                </div>
+                <div style={{ border: '1px solid var(--color-border)', borderRadius: 'var(--radius-md)', overflow: 'hidden', boxShadow: 'var(--shadow-sm)', height: '200px' }}>
+                  <img src={showcaseChat} alt="Trợ lý AI 24/7" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                 </div>
               </div>
 
@@ -357,43 +449,28 @@ export function HomePage() {
             {/* Showcase 5: Progress & Gamification Side-by-Side */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem', textAlign: 'left' }}>
               
-              <div className="card" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                <h3 style={{ fontSize: '1.35rem', color: 'var(--deep-blue)', fontWeight: 'bold', margin: 0 }}>Theo dõi Bảng điều khiển Cá nhân</h3>
-                <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.85rem', lineHeight: '1.5', margin: 0 }}>
-                  Thống kê thời gian, biểu đồ tiến trình học để dễ dàng định hình thói quen học tập.
-                </p>
-                <div style={{ backgroundColor: 'var(--color-primary-light)', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-md)', height: '160px', display: 'flex', alignItems: 'center', justifyCenter: 'center', justifyContent: 'center', color: 'var(--color-text-muted)', fontSize: '0.8rem' }}>
-                  [Screenshot Dashboard Progress]
+              <div className="card" style={{ padding: '1rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <div style={{ padding: '1rem 1rem 0' }}>
+                  <h3 style={{ fontSize: '1.35rem', color: 'var(--deep-blue)', fontWeight: 'bold', margin: '0 0 0.5rem' }}>Theo dõi Bảng điều khiển Cá nhân</h3>
+                  <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.85rem', lineHeight: '1.5', margin: 0 }}>
+                    Thống kê thời gian, biểu đồ tiến trình học để dễ dàng định hình thói quen học tập.
+                  </p>
+                </div>
+                <div style={{ border: '1px solid var(--color-border)', borderRadius: 'var(--radius-md)', overflow: 'hidden', boxShadow: 'var(--shadow-sm)', height: '200px' }}>
+                  <img src={showcaseDashboard} alt="Theo dõi Bảng điều khiển" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                 </div>
               </div>
 
               {/* Gamification premium styled block */}
-              <div className="card-premium" style={{ 
-                background: 'linear-gradient(135deg, #4f46e5, #06b6d4)', 
-                color: 'var(--white)',
-                padding: '2rem', 
-                display: 'flex', 
-                flexDirection: 'column', 
-                gap: '1.25rem',
-                border: 'none'
-              }}>
-                <h3 style={{ fontSize: '1.35rem', color: 'var(--white)', fontWeight: 'bold', margin: 0 }}>Thú vị hơn với Gamification</h3>
-                <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.85rem', lineHeight: '1.5', margin: 0 }}>
-                  Tích điểm kinh nghiệm (XP), thăng hạng bảng xếp hạng học tập và đạt các danh hiệu độc nhất.
-                </p>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 'auto' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <span style={{ fontSize: '1.75rem' }}>🛡️</span>
-                    <div>
-                      <span style={{ fontSize: '0.8rem', fontWeight: 'bold', display: 'block' }}>Level 10</span>
-                      <span style={{ fontSize: '0.75rem', opacity: 0.8 }}>Panda Master</span>
-                    </div>
-                  </div>
-                  <div style={{ display: 'flex', gap: '0.25rem' }}>
-                    <span title="Gold Medal" style={{ fontSize: '1.25rem' }}>🥇</span>
-                    <span title="Silver Medal" style={{ fontSize: '1.25rem' }}>🥈</span>
-                    <span title="Bronze Medal" style={{ fontSize: '1.25rem' }}>🥉</span>
-                  </div>
+              <div className="card" style={{ padding: '1rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <div style={{ padding: '1rem 1rem 0' }}>
+                  <h3 style={{ fontSize: '1.35rem', color: 'var(--deep-blue)', fontWeight: 'bold', margin: '0 0 0.5rem' }}>Thú vị hơn với Gamification</h3>
+                  <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.85rem', lineHeight: '1.5', margin: 0 }}>
+                    Tích điểm kinh nghiệm (XP), thăng hạng bảng xếp hạng học tập và đạt các danh hiệu độc nhất.
+                  </p>
+                </div>
+                <div style={{ border: '1px solid var(--color-border)', borderRadius: 'var(--radius-md)', overflow: 'hidden', boxShadow: 'var(--shadow-sm)', height: '200px' }}>
+                  <img src={showcaseGamify} alt="Gamification" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                 </div>
               </div>
 
@@ -416,10 +493,10 @@ export function HomePage() {
               
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                 {[
-                  { step: 'Đăng ký', desc: 'Tạo tài khoản học tập miễn phí trên hệ thống.' },
-                  { step: 'Tải lên', desc: 'Nhập hoặc tải lên tài liệu PDF/Text bạn muốn đọc hiểu.' },
-                  { step: 'Học tập', desc: 'Sử dụng các công cụ dịch, highlight và hỏi trợ lý AI.' },
-                  { step: 'Theo dõi', desc: 'Xem thống kê tiến trình, XP và streak học tập hàng ngày.' }
+                  { step: 'Đăng ký', desc: 'Tạo tài khoản miễn phí.' },
+                  { step: 'Tải lên', desc: 'Nhập tài liệu của bạn.' },
+                  { step: 'Học tập', desc: 'Sử dụng các công cụ AI.' },
+                  { step: 'Theo dõi', desc: 'Xem tiến độ phát triển.' }
                 ].map((item, idx) => (
                   <div key={idx} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
                     <div style={{ 
@@ -453,26 +530,30 @@ export function HomePage() {
                 <h3 style={{ fontSize: '1.25rem', color: 'var(--deep-blue)', marginBottom: '1.25rem', fontWeight: 'bold' }}>Tech Pipeline</h3>
                 <div className="pipeline-container">
                   <div className="pipeline-step">
+                    <img src={awsS3Logo} alt="AWS S3" style={{ height: '24px', width: '24px', objectFit: 'contain', marginBottom: '0.4rem' }} />
                     <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--deep-blue)' }}>AWS S3</span>
-                    <span style={{ fontSize: '0.6rem', color: 'var(--color-text-muted)' }}>Lưu trữ tài liệu</span>
+                    <span style={{ fontSize: '0.6rem', color: 'var(--color-text-muted)' }}>Lưu trữ</span>
                   </div>
                   <div className="pipeline-arrow"><ArrowRight size={16} /></div>
                   
                   <div className="pipeline-step">
+                    <img src={azureLogo} alt="Azure" style={{ height: '24px', width: '24px', objectFit: 'contain', marginBottom: '0.4rem' }} />
                     <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--deep-blue)' }}>Azure Vision</span>
-                    <span style={{ fontSize: '0.6rem', color: 'var(--color-text-muted)' }}>Bóc tách OCR</span>
+                    <span style={{ fontSize: '0.6rem', color: 'var(--color-text-muted)' }}>Bóc tách</span>
                   </div>
                   <div className="pipeline-arrow"><ArrowRight size={16} /></div>
                   
                   <div className="pipeline-step">
+                    <img src={deepseekLogo} alt="DeepSeek" style={{ height: '24px', width: '24px', objectFit: 'contain', marginBottom: '0.4rem' }} />
                     <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--deep-blue)' }}>DeepSeek AI</span>
-                    <span style={{ fontSize: '0.6rem', color: 'var(--color-text-muted)' }}>Dịch thuật & Hỏi đáp</span>
+                    <span style={{ fontSize: '0.6rem', color: 'var(--color-text-muted)' }}>Tích hợp ngôn ngữ</span>
                   </div>
                   <div className="pipeline-arrow"><ArrowRight size={16} /></div>
                   
                   <div className="pipeline-step">
+                    <img src={postgresqlLogo} alt="PostgreSQL" style={{ height: '24px', width: '24px', objectFit: 'contain', marginBottom: '0.4rem' }} />
                     <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--deep-blue)' }}>PostgreSQL</span>
-                    <span style={{ fontSize: '0.6rem', color: 'var(--color-text-muted)' }}>Cơ sở dữ liệu</span>
+                    <span style={{ fontSize: '0.6rem', color: 'var(--color-text-muted)' }}>CSDL quan hệ</span>
                   </div>
                 </div>
               </div>
@@ -481,22 +562,25 @@ export function HomePage() {
                 <h3 style={{ fontSize: '1.25rem', color: 'var(--deep-blue)', marginBottom: '1rem', fontWeight: 'bold' }}>Tech Stack</h3>
                 <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
                   {[
-                    { name: '.NET 8', detail: 'RESTful Backend' },
-                    { name: 'ReactJS', detail: 'Frontend SPA' },
-                    { name: 'Tailwind CSS', detail: 'Styling engine' },
-                    { name: 'Kubernetes', detail: 'Container orchestration' }
+                    { name: '.NET 8', detail: 'RESTful Backend', logo: dotnetLogo },
+                    { name: 'ReactJS', detail: 'Frontend SPA', logo: reactLogo },
+                    { name: 'Tailwind CSS', detail: 'Styling engine', logo: tailwindcssLogo },
+                    { name: 'Kubernetes', detail: 'Container orchestration', logo: kubernetesLogo }
                   ].map((stackItem, idx) => (
                     <div key={idx} style={{ 
                       backgroundColor: 'var(--color-primary-light)', 
                       border: '1px solid rgba(22, 143, 239, 0.15)',
                       borderRadius: 'var(--radius-sm)',
-                      padding: '0.5rem 1rem',
+                      padding: '0.75rem 1.25rem',
                       display: 'flex',
-                      flexDirection: 'column',
-                      gap: '0.15rem'
+                      alignItems: 'center',
+                      gap: '0.75rem'
                     }}>
-                      <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--color-primary)' }}>{stackItem.name}</span>
-                      <span style={{ fontSize: '0.65rem', color: 'var(--color-text-muted)' }}>{stackItem.detail}</span>
+                      <img src={stackItem.logo} alt={stackItem.name} style={{ height: '28px', width: '28px', objectFit: 'contain' }} />
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem', textAlign: 'left' }}>
+                        <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--color-primary)' }}>{stackItem.name}</span>
+                        <span style={{ fontSize: '0.65rem', color: 'var(--color-text-muted)' }}>{stackItem.detail}</span>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -517,20 +601,17 @@ export function HomePage() {
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem' }}>
-            {[...Array(8)].map((_, i) => (
+            {[showcaseVocab, showcaseTranslate, screenshotHero, showcaseGamify, showcaseDict, showcaseChat, showcaseDashboard, screenshotHero].map((img, i) => (
               <div key={i} style={{ 
                 backgroundColor: 'var(--color-primary-light)', 
                 border: '1px solid var(--color-border)', 
                 borderRadius: 'var(--radius-md)', 
+                overflow: 'hidden',
                 height: '140px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: 'var(--color-text-muted)',
-                fontSize: '0.75rem',
-                boxShadow: 'var(--shadow-sm)'
-              }}>
-                [Screenshot {i + 1}]
+                boxShadow: 'var(--shadow-sm)',
+                transition: 'transform 0.3s ease'
+              }} className="hover-scale">
+                <img src={img} alt={`Screenshot ${i + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
               </div>
             ))}
           </div>
@@ -544,10 +625,10 @@ export function HomePage() {
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '2rem', textAlign: 'left' }}>
             {[
-              { title: 'AI Tiên Tiến', desc: 'Trợ lý học tập thông minh phân tích sâu sắc ngữ nghĩa, giải thích cấu trúc nhanh chóng.' },
-              { title: 'Cá Nhân Hóa', desc: 'Lộ trình và tài liệu do chính bạn lựa chọn, học theo tốc độ tiếp thu của riêng bạn.' },
-              { title: 'Hiệu Quả Cao', desc: 'Ghi nhớ từ vựng sâu sắc và lâu dài nhờ ứng dụng thuật toán lặp lại ngắt quãng SRS.' },
-              { title: 'Cộng Đồng Hỗ Trợ', desc: 'Kết nối cùng những người học tiếng Trung có chung mục tiêu để cùng phát triển.' }
+              { title: 'AI Tiên Tiến', desc: 'Hệ thống học trợ lý, câu dẫn dắt thông minh.' },
+              { title: 'Cá Nhân Hóa', desc: 'Đo lường thời gian học tập cá nhân.' },
+              { title: 'Hiệu Quả Cao', desc: 'Nhớ lâu hơn qua phương pháp ôn tập ngắt quãng.' },
+              { title: 'Cộng Đồng Hỗ Trợ', desc: 'Học tập chia sẻ cùng cộng đồng đạt mục tiêu.' }
             ].map((item, idx) => (
               <div key={idx} className="card" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-primary)', fontWeight: 'bold' }}>
@@ -584,29 +665,24 @@ export function HomePage() {
                 Bắt đầu hành trình chinh phục tiếng Trung ngay hôm nay!
               </h2>
               <p style={{ color: '#94A3B8', fontSize: '1.1rem', lineHeight: '1.6' }}>
-                Gia nhập cộng đồng người học thông minh của Hanora và trải nghiệm phương pháp học tập tương tác hiện đại nhất.
+                Gia nhập cộng đồng Hanora và trải nghiệm học tập học hiệu quả.
               </p>
               <div>
-                <a href="#" className="btn btn-primary" style={{ padding: '0.85rem 2.25rem', borderRadius: 'var(--radius-full)' }}>
+                <a href="https://hanora.id.vn" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '0.85rem 2.25rem', borderRadius: 'var(--radius-full)' }}>
                   Bắt đầu ngay
                 </a>
               </div>
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <div className="float-animation" style={{ 
-                width: '180px', 
-                height: '180px', 
-                borderRadius: '50%', 
-                backgroundColor: 'rgba(255,255,255,0.08)', 
-                display: 'flex', 
-                alignItems: 'center', 
-                justifyContent: 'center',
-                fontSize: '6rem',
-                border: '2px solid rgba(255,255,255,0.1)'
-              }}>
-                🐼
-              </div>
+              <img src={mainImg} alt="Panda Mascot" className="float-animation" style={{
+                width: '180px',
+                height: '180px',
+                borderRadius: '50%',
+                objectFit: 'cover',
+                border: '4px solid rgba(255,255,255,0.2)',
+                boxShadow: 'var(--shadow-lg)'
+              }} />
             </div>
 
           </div>

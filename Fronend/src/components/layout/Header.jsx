@@ -1,22 +1,22 @@
 import { Link, useLocation } from 'react-router-dom';
+import logoImg from '../../assets/logo.png';
 
 export function Header() {
   const location = useLocation();
 
   const navItems = [
     { label: 'Trang chủ', path: '/' },
-    { label: 'Về Hanora', path: '/about' },
+    { label: 'Giới thiệu', path: '/about' },
     { label: 'Tính năng', path: '/solutions' },
-    { label: 'AI', path: '/technology' }, // We can point to tech page or keep it simple
     { label: 'Công nghệ', path: '/technology' },
-    { label: 'Hướng dẫn', path: '/solutions' }
+    { label: 'Đội ngũ', path: '/team' }
   ];
 
   return (
     <header className="header" style={{ position: 'sticky', top: 0, zIndex: 100 }}>
       <div className="header-inner" style={{ maxWidth: '1280px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 1.5rem' }}>
-        <Link to="/" className="logo" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <span style={{ fontSize: '1.6rem', fontWeight: '900', letterSpacing: '-0.5px', color: 'var(--color-primary)' }}>Hanora</span>
+        <Link to="/" className="logo" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+          <img src={logoImg} alt="Hanora Logo" style={{ height: '32px', objectFit: 'contain' }} />
         </Link>
         
         <nav>
@@ -44,20 +44,9 @@ export function Header() {
 
         <div className="header-actions" style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
           <a 
-            href="#" 
-            className="btn btn-outline"
-            style={{ 
-              padding: '0.5rem 1.25rem', 
-              fontSize: '0.9rem',
-              borderRadius: 'var(--radius-full)',
-              borderColor: 'var(--color-border)',
-              color: 'var(--color-text-primary)'
-            }}
-          >
-            Đăng nhập
-          </a>
-          <a 
-            href="#" 
+            href="https://hanora.id.vn" 
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn btn-primary"
             style={{ 
               padding: '0.5rem 1.25rem', 
