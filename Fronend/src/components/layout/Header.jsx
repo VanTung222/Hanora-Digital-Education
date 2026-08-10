@@ -5,26 +5,24 @@ export function Header() {
 
   const navItems = [
     { label: 'Trang chủ', path: '/' },
-    { label: 'Giới thiệu', path: '/about' },
-    { label: 'Giải pháp', path: '/solutions' },
+    { label: 'Về Hanora', path: '/about' },
+    { label: 'Tính năng', path: '/solutions' },
+    { label: 'AI', path: '/technology' }, // We can point to tech page or keep it simple
     { label: 'Công nghệ', path: '/technology' },
-    { label: 'Thành tựu', path: '/achievements' },
-    { label: 'Đội ngũ', path: '/team' },
-    { label: 'Tin tức', path: '/news' },
-    { label: 'Liên hệ', path: '/contact' },
+    { label: 'Hướng dẫn', path: '/solutions' }
   ];
 
   return (
-    <header className="header">
-      <div className="header-inner">
+    <header className="header" style={{ position: 'sticky', top: 0, zIndex: 100 }}>
+      <div className="header-inner" style={{ maxWidth: '1280px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 1.5rem' }}>
         <Link to="/" className="logo" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <span style={{ fontSize: '1.6rem', fontWeight: '900', letterSpacing: '-0.5px' }}>HANORA</span>
+          <span style={{ fontSize: '1.6rem', fontWeight: '900', letterSpacing: '-0.5px', color: 'var(--color-primary)' }}>Hanora</span>
         </Link>
         
-        <nav style={{ display: 'flex', alignItems: 'center' }}>
-          <ul className="nav-list" style={{ margin: 0, padding: 0, display: 'flex', listStyle: 'none', gap: '1.25rem' }}>
-            {navItems.map((item) => (
-              <li key={item.path}>
+        <nav>
+          <ul className="nav-list" style={{ display: 'flex', listStyle: 'none', gap: '1.5rem', margin: 0, padding: 0 }}>
+            {navItems.map((item, index) => (
+              <li key={index}>
                 <Link 
                   to={item.path} 
                   className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
@@ -34,7 +32,6 @@ export function Header() {
                     color: location.pathname === item.path ? 'var(--color-primary)' : 'var(--color-text-secondary)',
                     textDecoration: 'none',
                     padding: '0.25rem 0',
-                    borderBottom: location.pathname === item.path ? '2px solid var(--color-primary)' : '2px solid transparent',
                     transition: 'color var(--transition-fast)'
                   }}
                 >
@@ -45,20 +42,31 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="header-actions">
+        <div className="header-actions" style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
           <a 
-            href="https://hanora-platform.example.com" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+            href="#" 
+            className="btn btn-outline"
+            style={{ 
+              padding: '0.5rem 1.25rem', 
+              fontSize: '0.9rem',
+              borderRadius: 'var(--radius-full)',
+              borderColor: 'var(--color-border)',
+              color: 'var(--color-text-primary)'
+            }}
+          >
+            Đăng nhập
+          </a>
+          <a 
+            href="#" 
             className="btn btn-primary"
             style={{ 
-              padding: '0.6rem 1.25rem', 
+              padding: '0.5rem 1.25rem', 
               fontSize: '0.9rem',
-              borderRadius: 'var(--radius-md)',
+              borderRadius: 'var(--radius-full)',
               boxShadow: '0 4px 10px rgba(22, 143, 239, 0.2)'
             }}
           >
-            Khám phá Hanora
+            Bắt đầu học
           </a>
         </div>
       </div>
