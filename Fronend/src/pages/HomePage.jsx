@@ -206,7 +206,7 @@ export function HomePage() {
           borderBottom: '1px solid var(--color-border)',
           marginBottom: '2.5rem'
         }}>
-          <div style={{ maxWidth: '1280px', width: '100%', padding: '0 1.5rem', margin: '0 auto' }}>
+          <div style={{ maxWidth: '1480px', width: '100%', padding: '0 1.5rem', margin: '0 auto' }}>
             <style>{`
               @media (min-width: 992px) {
                 .hero-grid {
@@ -375,7 +375,7 @@ export function HomePage() {
           </div>
 
           {/* Connected Cards Row */}
-          <div style={{ position: 'relative', width: '100%', margin: '0 auto', maxWidth: '1200px' }}>
+          <div style={{ position: 'relative', width: '100%', margin: '0 auto', maxWidth: '1440px' }}>
             {/* Solid connecting line with dots between cards */}
             <div style={{
               position: 'absolute',
@@ -701,7 +701,7 @@ export function HomePage() {
            SECTION 04: STAT METRICS BANNER
            ========================================== */}
         <div style={{
-          maxWidth: '1200px',
+          maxWidth: '1440px',
           width: '100%',
           margin: '2rem auto 2.5rem',
           background: 'linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%)',
@@ -882,7 +882,7 @@ export function HomePage() {
             </p>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'nowrap', gap: '3rem', justifyContent: 'center', maxWidth: '1200px', margin: '0 auto', overflowX: 'auto', paddingBottom: '0.5rem' }} className="team-container-scroll">
+          <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'nowrap', gap: '3rem', justifyContent: 'center', maxWidth: '1440px', margin: '0 auto', overflowX: 'auto', paddingBottom: '0.5rem' }} className="team-container-scroll">
             <style>{`
               .team-container-scroll::-webkit-scrollbar {
                 display: none;
@@ -1080,7 +1080,7 @@ export function HomePage() {
           boxShadow: 'var(--shadow-premium)',
           marginTop: '3rem',
           width: '100%',
-          maxWidth: '1200px',
+          maxWidth: '1440px',
           marginLeft: 'auto',
           marginRight: 'auto'
         }}>

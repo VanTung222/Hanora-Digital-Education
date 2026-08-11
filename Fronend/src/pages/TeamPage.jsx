@@ -72,7 +72,7 @@ export function TeamPage() {
 
   return (
     <MainLayout>
-      <div className="team-page" style={{ paddingBottom: '4rem', textAlign: 'center', position: 'relative' }}>
+      <div className="container" style={{ paddingBottom: '4rem', textAlign: 'center', position: 'relative', display: 'flex', flexDirection: 'column', gap: '3rem' }}>
         
         {/* ==========================================
            SECTION 01: HERO SECTION

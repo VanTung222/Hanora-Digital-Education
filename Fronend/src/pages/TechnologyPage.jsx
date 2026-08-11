@@ -56,7 +56,7 @@ export function TechnologyPage() {
 
   return (
     <MainLayout>
-      <div className="technology-page" style={{ paddingBottom: '4rem' }}>
+      <div className="container" style={{ paddingBottom: '4rem', display: 'flex', flexDirection: 'column', gap: '3rem' }}>
         
         {/* ==========================================
            SECTION 01: HERO SECTION

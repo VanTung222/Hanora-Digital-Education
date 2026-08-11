@@ -27,7 +27,7 @@ export function AchievementsPage() {
 
   return (
     <MainLayout>
-      <div className="achievements-page" style={{ padding: '2rem 0', textAlign: 'left' }}>
+      <div className="container" style={{ padding: '2rem 0', textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '3rem' }}>
         
         {/* Hero Section */}
         <section style={{ textAlign: 'center', padding: '4rem 1.5rem', marginBottom: '4rem', backgroundColor: 'var(--color-primary-light)', borderRadius: 'var(--radius-xl)' }}>
