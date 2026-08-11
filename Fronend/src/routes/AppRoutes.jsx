@@ -5,7 +5,6 @@ import { SolutionsPage } from '../pages/SolutionsPage';
 import { TechnologyPage } from '../pages/TechnologyPage';
 import { AchievementsPage } from '../pages/AchievementsPage';
 import { TeamPage } from '../pages/TeamPage';
-import { NewsPage } from '../pages/NewsPage';
 import { ContactPage } from '../pages/ContactPage';
 
 export function AppRoutes() {
@@ -17,7 +16,6 @@ export function AppRoutes() {
       <Route path="/technology" element={<TechnologyPage />} />
       <Route path="/achievements" element={<AchievementsPage />} />
       <Route path="/team" element={<TeamPage />} />
-      <Route path="/news" element={<NewsPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
