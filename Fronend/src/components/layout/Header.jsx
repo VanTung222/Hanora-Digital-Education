@@ -12,11 +12,22 @@ export function Header() {
     { label: 'Đội ngũ', path: '/team' }
   ];
 
+  const isHome = location.pathname === '/';
+
   return (
-    <header className="header" style={{ position: 'sticky', top: 0, zIndex: 100 }}>
-      <div className="header-inner" style={{ maxWidth: '1280px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 1.5rem' }}>
+    <header className="header" style={{ 
+      position: isHome ? 'fixed' : 'sticky', 
+      top: 0, 
+      left: 0,
+      right: 0,
+      zIndex: 100,
+      backgroundColor: isHome ? 'rgba(255, 255, 255, 0.55)' : 'var(--color-bg-card)',
+      borderBottom: isHome ? '1px solid rgba(255, 255, 255, 0.2)' : '1px solid var(--color-border)',
+      backdropFilter: 'blur(12px)'
+    }}>
+      <div className="header-inner" style={{ maxWidth: '1280px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.75rem 1.5rem' }}>
         <Link to="/" className="logo" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-          <img src={logoImg} alt="Hanora Logo" style={{ height: '32px', objectFit: 'contain' }} />
+          <img src={logoImg} alt="Hanora Logo" style={{ height: '46px', objectFit: 'contain' }} />
         </Link>
         
         <nav>
