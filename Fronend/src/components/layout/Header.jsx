@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 import logoImg from "../../assets/logo.png";
 
 export function Header() {
   const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
     { label: "Trang chủ", path: "/" },
@@ -10,6 +13,10 @@ export function Header() {
     { label: "Tính năng", path: "/solutions" },
     { label: "Liên hệ", path: "/contact" },
   ];
+
+  const handleLinkClick = () => {
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <header
@@ -21,11 +28,98 @@ export function Header() {
         right: 0,
         zIndex: 100,
         backgroundColor: "rgba(255, 255, 255, 0.88)",
-        borderBottom: "1px solid rgba(255, 255, 255, 0.2)",
+        borderBottom: "1px solid var(--color-border)",
         backdropFilter: "blur(12px)",
         boxShadow: "0 4px 20px rgba(15, 23, 42, 0.05)",
       }}
     >
+      <style>{`
+        /* Responsive rules for header */
+        .desktop-nav {
+          display: flex;
+          align-items: center;
+        }
+        .mobile-menu-btn {
+          display: none;
+          background: none;
+          border: none;
+          color: var(--deep-blue);
+          cursor: pointer;
+          padding: 0.5rem;
+          align-items: center;
+          justify-content: center;
+          transition: transform 0.2s;
+        }
+        .mobile-menu-btn:active {
+          transform: scale(0.92);
+        }
+        .header-desktop-actions {
+          display: flex;
+        }
+        .mobile-nav-panel {
+          display: none;
+          flex-direction: column;
+          background-color: #ffffff;
+          border-bottom: 1px solid var(--color-border);
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          padding: 1.5rem;
+          gap: 1.25rem;
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+          animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          transform-origin: top;
+        }
+        .mobile-nav-list {
+          display: flex;
+          flex-direction: column;
+          list-style: none;
+          gap: 1rem;
+          margin: 0;
+          padding: 0;
+        }
+        .mobile-nav-link {
+          font-size: 1rem;
+          font-weight: 600;
+          color: var(--color-text-secondary);
+          text-decoration: none;
+          padding: 0.5rem 0;
+          display: block;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+          transition: color 0.2s;
+        }
+        .mobile-nav-link:hover, .mobile-nav-link.active {
+          color: var(--color-primary);
+        }
+
+        @keyframes slideDown {
+          from {
+            transform: scaleY(0);
+            opacity: 0;
+          }
+          to {
+            transform: scaleY(1);
+            opacity: 1;
+          }
+        }
+
+        @media (max-width: 767px) {
+          .desktop-nav {
+            display: none !important;
+          }
+          .header-desktop-actions {
+            display: none !important;
+          }
+          .mobile-menu-btn {
+            display: flex !important;
+          }
+          .mobile-nav-panel.open {
+            display: flex !important;
+          }
+        }
+      `}</style>
+
       <div
         className="header-inner"
         style={{
@@ -45,6 +139,7 @@ export function Header() {
             display: "flex",
             alignItems: "center",
           }}
+          onClick={handleLinkClick}
         >
           <img
             src={logoImg}
@@ -53,7 +148,8 @@ export function Header() {
           />
         </Link>
 
-        <nav>
+        {/* Desktop Navigation */}
+        <nav className="desktop-nav">
           <ul
             className="nav-list"
             style={{
@@ -88,21 +184,68 @@ export function Header() {
           </ul>
         </nav>
 
+        {/* Desktop Actions */}
         <div
-          className="header-actions"
-          style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}
+          className="header-desktop-actions"
+          style={{ gap: "0.75rem", alignItems: "center" }}
         >
+          <a
+            href="https://hanora.id.vn"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary scale-hover"
+            style={{
+              padding: "0.5rem 1.25rem",
+              fontSize: "0.9rem",
+              borderRadius: "8px",
+              boxShadow: "0 4px 10px rgba(22, 143, 239, 0.2)",
+              fontWeight: "bold",
+            }}
+          >
+            Khám phá Hanora →
+          </a>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="mobile-menu-btn"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle navigation menu"
+        >
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+
+        {/* Mobile Navigation Panel */}
+        <div className={`mobile-nav-panel ${isMobileMenuOpen ? "open" : ""}`}>
+          <ul className="mobile-nav-list">
+            {navItems.map((item, index) => (
+              <li key={index}>
+                <Link
+                  to={item.path}
+                  className={`mobile-nav-link ${location.pathname === item.path ? "active" : ""}`}
+                  onClick={handleLinkClick}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
           <a
             href="https://hanora.id.vn"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
             style={{
-              padding: "0.5rem 1.25rem",
-              fontSize: "0.9rem",
-              borderRadius: "var(--radius-full)",
+              padding: "0.75rem",
+              fontSize: "0.95rem",
+              borderRadius: "8px",
+              textAlign: "center",
               boxShadow: "0 4px 10px rgba(22, 143, 239, 0.2)",
+              fontWeight: "bold",
+              width: "100%",
+              display: "block",
             }}
+            onClick={handleLinkClick}
           >
             Khám phá Hanora →
           </a>

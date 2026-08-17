@@ -18,10 +18,20 @@ export function Footer() {
       <div className="footer-inner" style={{ maxWidth: '1520px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '3rem' }}>
         
         {/* Footer Grid */}
+        <style>{`
+          .footer-brand {
+            grid-column: 1 / -1;
+          }
+          @media (min-width: 768px) {
+            .footer-brand {
+              grid-column: span 2;
+            }
+          }
+        `}</style>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '2.5rem' }}>
           
           {/* Logo & Description */}
-          <div style={{ gridColumn: 'span 2' }}>
+          <div className="footer-brand">
             <Link to="/" className="logo" style={{ fontSize: '1.8rem', fontWeight: '900', textDecoration: 'none', marginBottom: '1rem', display: 'block', color: 'var(--color-primary)' }}>
               Hanora
             </Link>

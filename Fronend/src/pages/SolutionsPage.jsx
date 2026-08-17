@@ -288,10 +288,26 @@ export function SolutionsPage() {
             width: "100%",
           }}
         >
+          <style>{`
+            @media (min-width: 992px) {
+              .solutions-hero-grid {
+                grid-template-columns: 4fr 6fr !important;
+              }
+            }
+            @media (max-width: 767px) {
+              .feature-text {
+                order: 0 !important;
+              }
+              .solutions-showcase > div {
+                order: 0 !important;
+              }
+            }
+          `}</style>
           <div
+            className="solutions-hero-grid"
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
               gap: "3rem",
               width: "100%",
               alignItems: "center",
@@ -330,32 +346,32 @@ export function SolutionsPage() {
                 </span>
                 <h1
                   style={{
-                    fontSize: "2.6rem",
-                    fontWeight: "800",
+                    fontSize: "3rem",
+                    fontWeight: "900",
                     color: "#0f172a",
-                    lineHeight: "1.25",
+                    lineHeight: "1.2",
                     margin: 0,
-                    letterSpacing: "-0.5px",
+                    fontFamily: "Inter, system-ui, sans-serif",
+                    letterSpacing: "-1px",
                   }}
                 >
                   Một nền tảng – Nhiều giải pháp
                   <br />
-                  cho hành trình học tiếng Trung
+                  cho <span style={{ color: "var(--color-primary)" }}>hành trình học tiếng Trung</span>.
                 </h1>
               </div>
 
               <p
                 style={{
                   color: "#475569",
-                  fontSize: "1.05rem",
-                  lineHeight: "1.65",
+                  fontSize: "1.1rem",
+                  lineHeight: "1.6",
                   margin: 0,
                   maxWidth: "520px",
+                  fontFamily: "Inter, system-ui, sans-serif",
                 }}
               >
-                Hanora cung cấp đầy đủ công cụ và tài nguyên giúp bạn
-                <br />
-                học tiếng Trung hiệu quả, toàn diện và thú vị hơn mỗi ngày.
+                Hanora cung cấp đầy đủ công cụ và tài nguyên giúp bạn học tiếng Trung hiệu quả, toàn diện và thú vị hơn mỗi ngày.
               </p>
 
               {/* CTAs */}
@@ -375,7 +391,7 @@ export function SolutionsPage() {
                     backgroundColor: "#1d4ed8",
                     color: "#ffffff",
                     padding: "0.75rem 1.5rem",
-                    borderRadius: "8px",
+                    borderRadius: "var(--radius-full)",
                     fontWeight: "bold",
                     fontSize: "0.95rem",
                     display: "flex",
@@ -397,7 +413,7 @@ export function SolutionsPage() {
                     color: "#334155",
                     border: "1px solid #cbd5e1",
                     padding: "0.75rem 1.5rem",
-                    borderRadius: "8px",
+                    borderRadius: "var(--radius-full)",
                     fontWeight: "bold",
                     fontSize: "0.95rem",
                     cursor: "pointer",
@@ -452,7 +468,7 @@ export function SolutionsPage() {
                       style={{
                         fontSize: "0.95rem",
                         fontWeight: "bold",
-                        color: "#0f172a",
+                        color: "var(--deep-blue)",
                         lineHeight: "1.2",
                       }}
                     >
@@ -499,7 +515,7 @@ export function SolutionsPage() {
                       style={{
                         fontSize: "0.95rem",
                         fontWeight: "bold",
-                        color: "#0f172a",
+                        color: "var(--deep-blue)",
                         lineHeight: "1.2",
                       }}
                     >
@@ -546,7 +562,7 @@ export function SolutionsPage() {
                       style={{
                         fontSize: "0.95rem",
                         fontWeight: "bold",
-                        color: "#0f172a",
+                        color: "var(--deep-blue)",
                         lineHeight: "1.2",
                       }}
                     >
@@ -618,7 +634,7 @@ export function SolutionsPage() {
                 className="solutions-showcase solutions-flow"
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
                   gap: "4rem",
                   alignItems: "center",
                   textAlign: "left",

@@ -106,7 +106,14 @@ export function ContactPage() {
            SECTION 01: HERO SECTION
            ========================================== */}
         <section style={{ padding: '4rem 0 2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', width: '100%', alignItems: 'center', textAlign: 'left' }}>
+          <style>{`
+            @media (min-width: 992px) {
+              .contact-hero-grid {
+                grid-template-columns: 4fr 6fr !important;
+              }
+            }
+          `}</style>
+          <div className="contact-hero-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem', width: '100%', alignItems: 'center', textAlign: 'left' }}>
             
             {/* Left Column Content */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -116,23 +123,34 @@ export function ContactPage() {
                   fontWeight: '800', 
                   color: 'var(--color-primary)', 
                   textTransform: 'uppercase', 
-                  letterSpacing: '1.5px'
+                  letterSpacing: '1.5px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '2px'
                 }}>
-                  KẾT NỐI CÙNG HANORA
+                  KẾT NỐI CÙNG HANORA <span style={{ fontSize: '0.9rem' }}>+</span>
                 </span>
                 <h1 style={{ 
-                  fontSize: '2.6rem', 
-                  fontWeight: '800', 
-                  color: 'var(--deep-blue)', 
-                  lineHeight: '1.25', 
+                  fontSize: '3rem', 
+                  fontWeight: '900', 
+                  color: '#0f172a', 
+                  lineHeight: '1.2', 
                   margin: 0,
-                  letterSpacing: '-0.5px'
+                  fontFamily: 'Inter, system-ui, sans-serif',
+                  letterSpacing: '-1px'
                 }}>
-                  Bạn muốn tìm hiểu thêm về Hanora?
+                  Bạn muốn tìm hiểu thêm về <span style={{ color: 'var(--color-primary)' }}>Hanora</span>?
                 </h1>
               </div>
               
-              <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.05rem', lineHeight: '1.65', margin: 0, maxWidth: '520px' }}>
+              <p style={{ 
+                color: '#475569', 
+                fontSize: '1.1rem', 
+                lineHeight: '1.6', 
+                margin: 0, 
+                maxWidth: '520px',
+                fontFamily: 'Inter, system-ui, sans-serif'
+              }}>
                 Hãy liên hệ với chúng tôi nếu bạn có câu hỏi, phản hồi hoặc muốn đồng hành cùng Hanora trên hành trình xây dựng trải nghiệm học tiếng Trung tốt hơn.
               </p>
             </div>
@@ -276,7 +294,7 @@ export function ContactPage() {
            ========================================== */}
         <section id="office-map" style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
           gap: '3rem',
           textAlign: 'left'
         }}>
@@ -426,9 +444,9 @@ export function ContactPage() {
             <span style={{ color: 'var(--color-primary)', fontSize: '1.25rem', position: 'absolute', top: '-0.25rem', right: '-1rem', fontWeight: 'bold' }}>+</span>
           </h2>
 
-          <div style={{ 
+           <div style={{ 
             display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
             gap: '1rem',
             textAlign: 'left'
           }}>

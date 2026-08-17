@@ -6,6 +6,7 @@
   --bg-color: #F7FAFD;
   --white: #FFFFFF;
   --text-color: #152238;
+  --sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
   /* Theme mappings */
   --color-bg: var(--bg-color);
