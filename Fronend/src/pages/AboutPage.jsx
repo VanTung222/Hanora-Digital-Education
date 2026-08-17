@@ -1,12 +1,23 @@
+import { Link } from 'react-router-dom';
 import { 
   Sparkles, ArrowRight, EyeOff, Brain, FileText, CheckCircle2, User, Check,
-  Cpu, Languages, Eye, Target, Diamond, Lightbulb, Search, Code, Rocket, Trophy, Compass
+  Cpu, Languages, Eye, Target, Diamond, Lightbulb, Search, Code, Rocket, Trophy, Compass, Users, Volume2
 } from 'lucide-react';
 import { MainLayout } from '../components/layout/MainLayout';
 
 // Import local assets matching the user's reference design
 import heroImg from '../assets/57271925-3a45-4c54-8adf-abb740ba7a86.png'; // Panda Mascot next to tablet
 import allInOneImg from '../assets/unnamed (9).jpg'; // Screenshot editor workspace with PDF sidebar
+import avatar1 from '../assets/avatar1.png';
+import avatar2 from '../assets/avatar2.png';
+import avatar3 from '../assets/avatar3.png';
+import avatar4 from '../assets/avatar4.png';
+import avatar5 from '../assets/avatar5.png';
+import avatar6 from '../assets/avatar6.png';
+import StreakImage from '../assets/StreakImage-removebg-preview.png';
+import heroIllustration from '../assets/f27340dc-8d23-4810-86c0-127ef9a3cd3d.png'; // Trophy with Mascot
+import awardImage from '../assets/1786444073342_2139156838608309818_4679679961168383332_0ca75879ac1ee6e9e4d6053ed35c4477.jpg'; // FShark award photo
+import cyeImage from '../assets/775261061_122129776293344863_7153611600208407045_n.jpg'; // CYE Junior award photo
 
 export function AboutPage() {
   return (
@@ -51,7 +62,7 @@ export function AboutPage() {
             <div className="about-hero-grid" style={{ width: '100%', maxWidth: '100%' }}>
               
               {/* Left Column Content */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }} className="fade-slide-up">
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', textAlign: 'left' }} className="fade-slide-up">
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                   <div style={{ 
                     fontSize: '0.85rem', 
@@ -68,7 +79,7 @@ export function AboutPage() {
                   <h1 style={{ 
                     fontSize: '2.6rem', 
                     fontWeight: '800', 
-                    color: '#0f172a', 
+                    color: 'var(--deep-blue)', 
                     lineHeight: '1.25', 
                     margin: 0,
                     letterSpacing: '-0.5px'
@@ -78,25 +89,18 @@ export function AboutPage() {
                   </h1>
                 </div>
                 
-                <p style={{ color: '#475569', fontSize: '1.05rem', lineHeight: '1.65', margin: 0, maxWidth: '520px' }}>
+                <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.05rem', lineHeight: '1.65', margin: 0, maxWidth: '520px' }}>
                   Hanora là nền tảng học tiếng Trung ứng dụng AI giúp bạn học từ vựng, đọc hiểu, dịch tài liệu và luyện tập hiệu quả trong một hệ sinh thái duy nhất.
                 </p>
                 
-                {/* Badge Pills Row (Single Unified Bar with dividers) */}
+                {/* Badge Pills Row (Separate individual pills) */}
                 <div style={{ 
-                  display: 'inline-flex', 
-                  flexDirection: 'row', 
-                  alignItems: 'center', 
-                  backgroundColor: '#ffffff',
-                  border: '1px solid #e2e8f0',
-                  borderRadius: '12px',
-                  padding: '0.6rem 1.25rem',
-                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.02)',
-                  width: 'fit-content',
-                  maxWidth: '100%',
-                  gap: '1rem',
+                  display: 'flex', 
+                  flexWrap: 'wrap', 
+                  gap: '0.75rem',
                   marginTop: '0.5rem',
-                  flexWrap: 'wrap'
+                  justifyContent: 'flex-start',
+                  width: '100%'
                 }}>
                   {[
                     { label: 'AI hỗ trợ', icon: 'AI' },
@@ -104,49 +108,35 @@ export function AboutPage() {
                     { label: 'Dễ sử dụng', icon: Check },
                     { label: 'Hiệu quả & bền vững', icon: Sparkles }
                   ].map((pill, idx) => (
-                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                      {idx > 0 && (
-                        <div style={{ width: '1px', height: '1.25rem', backgroundColor: '#e2e8f0' }}></div>
+                    <div key={idx} style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      backgroundColor: 'rgba(22, 143, 239, 0.05)',
+                      border: '1px solid rgba(22, 143, 239, 0.1)',
+                      borderRadius: '99px',
+                      padding: '0.4rem 1rem',
+                      fontSize: '0.85rem',
+                      color: 'var(--color-text-secondary)',
+                      fontWeight: '600',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.01)'
+                    }}>
+                      {typeof pill.icon === 'string' ? (
+                        <span style={{ 
+                          fontSize: '0.7rem', 
+                          fontWeight: '900', 
+                          color: 'var(--color-primary)' 
+                        }}>{pill.icon}</span>
+                      ) : (
+                        <span style={{ 
+                          color: 'var(--color-primary)',
+                          display: 'flex',
+                          alignItems: 'center'
+                        }}>
+                          <pill.icon size={13} />
+                        </span>
                       )}
-                      <div style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.5rem',
-                        fontSize: '0.85rem',
-                        color: '#475569',
-                        fontWeight: '600'
-                      }}>
-                        {typeof pill.icon === 'string' ? (
-                          <div style={{ 
-                            width: '1.35rem', 
-                            height: '1.35rem', 
-                            borderRadius: '50%', 
-                            backgroundColor: 'rgba(22, 143, 239, 0.08)', 
-                            color: 'var(--color-primary)', 
-                            fontSize: '0.6rem', 
-                            fontWeight: '900', 
-                            display: 'flex', 
-                            alignItems: 'center', 
-                            justifyContent: 'center', 
-                            flexShrink: 0 
-                          }}>{pill.icon}</div>
-                        ) : (
-                          <div style={{ 
-                            width: '1.35rem', 
-                            height: '1.35rem', 
-                            borderRadius: '50%', 
-                            backgroundColor: 'rgba(22, 143, 239, 0.08)', 
-                            color: 'var(--color-primary)', 
-                            display: 'flex', 
-                            alignItems: 'center', 
-                            justifyContent: 'center', 
-                            flexShrink: 0 
-                          }}>
-                            <pill.icon size={11} />
-                          </div>
-                        )}
-                        <span>{pill.label}</span>
-                      </div>
+                      <span>{pill.label}</span>
                     </div>
                   ))}
                 </div>
@@ -171,219 +161,290 @@ export function AboutPage() {
         {/* ==========================================
            SECTION 02: REAL-WORLD PROBLEMS & MISSION
            ========================================== */}
-        <section style={{ padding: '2rem 0', display: 'flex', flexDirection: 'column', gap: '4rem', width: '100%', maxWidth: '1440px', margin: '0 auto' }}>
+        <section style={{ padding: '2rem 0', display: 'flex', flexDirection: 'column', gap: '3.5rem', width: '100%', maxWidth: '1440px', margin: '0 auto' }}>
           
-          {/* Subsection 2.1: Real-world problems */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
-            <div style={{ textAlign: 'center', position: 'relative' }}>
-              <h2 style={{ fontSize: '2.2rem', color: '#0f172a', fontWeight: '800', lineHeight: '1.3', maxWidth: '800px', margin: '0 auto', position: 'relative', display: 'inline-block' }}>
-                Hanora được tạo ra để giải quyết những vấn đề thực tế<br />
-                trong quá trình học tiếng Trung.
-                <span style={{ color: 'var(--color-primary)', fontSize: '1.25rem', position: 'absolute', top: '-0.25rem', right: '-1rem', fontWeight: 'bold' }}>+</span>
-              </h2>
-            </div>
-
-            <div style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
-              gap: '1.25rem' 
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+            gap: '2rem', 
+            textAlign: 'left', 
+            alignItems: 'stretch' 
+          }}>
+            {/* Column 1: Hanora là gì? */}
+            <div className="scale-hover" style={{ 
+              padding: '2.5rem 2.25rem', 
+              backgroundColor: '#ffffff',
+              border: '1px solid #e2e8f0',
+              borderRadius: '24px',
+              boxShadow: 'var(--shadow-sm)',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              gap: '2rem',
+              position: 'relative',
+              overflow: 'hidden'
             }}>
-              {[
-                {
-                  title: 'Tài liệu phân tán',
-                  desc: 'Việc tìm kiếm và tổng hợp tài liệu học mất nhiều thời gian và công sức.',
-                  icon: FileText
-                },
-                {
-                  title: 'Từ vựng khó ghi nhớ',
-                  desc: 'Học xong dễ quên vì thiếu phương pháp ôn tập khoa học.',
-                  icon: Brain
-                },
-                {
-                  title: 'Thiếu cá nhân hóa',
-                  desc: 'Phương pháp học chung không phù hợp với mục tiêu và trình độ mỗi người.',
-                  icon: Cpu
-                },
-                {
-                  title: 'Dịch thuật phức tạp',
-                  desc: 'Đọc hiểu và dịch tài liệu mất nhiều bước, gián đoạn quá trình học.',
-                  icon: Languages
-                },
-                {
-                  title: 'Thiếu động lực học tập',
-                  desc: 'Khó duy trì thói quen học tập mỗi ngày một cách bền vững.',
-                  icon: Compass
-                }
-              ].map((item, idx) => (
-                <div key={idx} className="card scale-hover" style={{ 
-                  padding: '2.5rem 1.5rem', 
-                  display: 'flex', 
-                  flexDirection: 'column', 
-                  alignItems: 'center',
-                  textAlign: 'center',
-                  gap: '1.25rem', 
-                  backgroundColor: '#ffffff', 
-                  border: '1px solid #e2e8f0', 
-                  borderRadius: '16px',
-                  boxShadow: '0 4px 20px rgba(0,0,0,0.015)'
+              {/* Subtle accent background blur */}
+              <div style={{ position: 'absolute', top: '-50px', right: '-50px', width: '120px', height: '120px', borderRadius: '50%', backgroundColor: 'rgba(22, 143, 239, 0.04)', filter: 'blur(30px)' }}></div>
+              
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                <span style={{ 
+                  padding: '0.35rem 0.75rem', 
+                  fontSize: '0.8rem', 
+                  fontWeight: 'bold', 
+                  color: 'var(--color-primary)', 
+                  backgroundColor: 'rgba(22, 143, 239, 0.06)', 
+                  borderRadius: '99px',
+                  width: 'fit-content'
                 }}>
-                  <div style={{ 
-                    width: '3.25rem', 
-                    height: '3.25rem', 
-                    borderRadius: '50%', 
-                    backgroundColor: 'rgba(22, 143, 239, 0.05)', 
-                    color: 'var(--color-primary)', 
+                  Giới thiệu cốt lõi
+                </span>
+                
+                <h3 style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--deep-blue)', margin: 0 }}>
+                  Hanora là gì?
+                </h3>
+                
+                <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.95rem', lineHeight: '1.7', margin: 0 }}>
+                  Hanora là nền tảng học tiếng Trung ứng dụng AI giúp người học biến những tài liệu tiếng Trung thực tế thành một <strong>môi trường học tập tương tác sinh động</strong>.
+                </p>
+                <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.95rem', lineHeight: '1.7', margin: 0 }}>
+                  Người dùng có thể tải tài liệu cá nhân lên, đọc trực tiếp trên giao diện của Hanora, tra cứu từ theo ngữ cảnh, lưu trữ từ vựng vào kho cá nhân và tự động biên soạn thành Flashcard thông minh để học ôn tập.
+                </p>
+              </div>
+
+              {/* Styled Checklist Grid */}
+              <div style={{ 
+                display: 'grid', 
+                gridTemplateColumns: 'repeat(2, 1fr)', 
+                gap: '0.75rem', 
+                borderTop: '1px solid #f1f5f9', 
+                paddingTop: '1.5rem',
+                marginTop: '0.5rem'
+              }}>
+                {[
+                  'Đọc PDF/DOCX',
+                  'Tra từ ngữ cảnh',
+                  'Kho từ cá nhân',
+                  'Flashcard SRS'
+                ].map((item, idx) => (
+                  <div key={idx} style={{ 
                     display: 'flex', 
                     alignItems: 'center', 
-                    justifyContent: 'center',
-                    flexShrink: 0
+                    gap: '0.5rem', 
+                    padding: '0.5rem 0.75rem',
+                    backgroundColor: 'rgba(22, 143, 239, 0.04)',
+                    border: '1px solid rgba(22, 143, 239, 0.06)',
+                    borderRadius: '10px',
+                    fontSize: '0.8rem', 
+                    color: 'var(--color-text-secondary)', 
+                    fontWeight: '600' 
                   }}>
-                    <item.icon size={22} />
+                    <span style={{ color: 'var(--color-primary)', fontWeight: 'bold' }}>✓</span>
+                    <span>{item}</span>
                   </div>
-                  <h3 style={{ fontSize: '1rem', color: '#0f172a', fontWeight: '800', margin: 0 }}>
-                    {item.title}
-                  </h3>
-                  <p style={{ color: '#64748b', fontSize: '0.825rem', lineHeight: '1.6', margin: 0 }}>
-                    {item.desc}
+                ))}
+              </div>
+            </div>
+
+            {/* Column 2: Hanora giải quyết vấn đề gì? */}
+            <div className="scale-hover" style={{ 
+              padding: '2.5rem 2.25rem', 
+              backgroundColor: '#ffffff',
+              border: '1px solid #e2e8f0',
+              borderRadius: '24px',
+              boxShadow: 'var(--shadow-sm)',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              gap: '2rem',
+              position: 'relative',
+              overflow: 'hidden'
+            }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                <span style={{ 
+                  padding: '0.35rem 0.75rem', 
+                  fontSize: '0.8rem', 
+                  fontWeight: 'bold', 
+                  color: '#ef4444', 
+                  backgroundColor: 'rgba(239, 68, 68, 0.06)', 
+                  borderRadius: '99px',
+                  width: 'fit-content'
+                }}>
+                  Vấn đề & Giải pháp
+                </span>
+                
+                <h3 style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--deep-blue)', margin: 0 }}>
+                  Hanora giải quyết vấn đề gì?
+                </h3>
+                
+                <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.95rem', lineHeight: '1.7', margin: 0 }}>
+                  Học tiếng Trung không nên bị gián đoạn. Người học hiện nay phải kết hợp rời rạc nhiều công cụ khác nhau:
+                </p>
+
+                {/* Traditional Workflow Diagram */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', margin: '0.25rem 0' }}>
+                  <span style={{ fontSize: '0.7rem', fontWeight: '800', color: '#94a3b8', letterSpacing: '0.5px' }}>
+                    QUY TRÌNH RỜI RẠC TRƯỚC ĐÂY:
+                  </span>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.35rem' }}>
+                    {['Tài liệu', 'App tra từ', 'Dịch thuật', 'AI', 'Flashcard'].map((step, idx) => (
+                      <span key={idx} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+                        {idx > 0 && <span style={{ color: '#cbd5e1', fontSize: '0.75rem' }}>➔</span>}
+                        <span style={{
+                          fontSize: '0.75rem',
+                          padding: '0.25rem 0.5rem',
+                          backgroundColor: '#f8fafc',
+                          border: '1px dashed #e2e8f0',
+                          borderRadius: '6px',
+                          color: '#64748b',
+                          fontWeight: '600'
+                        }}>{step}</span>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Hanora Workflow Diagram */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', margin: '0.25rem 0' }}>
+                  <span style={{ fontSize: '0.7rem', fontWeight: '800', color: 'var(--color-primary)', letterSpacing: '0.5px' }}>
+                    WORKFLOW THỐNG NHẤT VỚI HANORA:
+                  </span>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.35rem' }}>
+                    {['Đọc', 'Tra cứu', 'Lưu từ', 'Ôn tập', 'Phát âm'].map((step, idx) => (
+                      <span key={idx} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+                        {idx > 0 && <span style={{ color: 'var(--color-primary)', fontSize: '0.75rem' }}>➔</span>}
+                        <span style={{
+                          fontSize: '0.75rem',
+                          padding: '0.25rem 0.5rem',
+                          backgroundColor: 'rgba(22, 143, 239, 0.08)',
+                          border: '1px solid rgba(22, 143, 239, 0.15)',
+                          borderRadius: '6px',
+                          color: 'var(--color-primary)',
+                          fontWeight: 'bold'
+                        }}>{step}</span>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Core USP Banner */}
+                <div style={{ 
+                  backgroundColor: 'rgba(22, 143, 239, 0.03)', 
+                  borderLeft: '3px solid var(--color-primary)', 
+                  padding: '0.75rem 1rem', 
+                  borderRadius: '0 8px 8px 0',
+                  marginTop: '0.5rem'
+                }}>
+                  <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.85rem', lineHeight: '1.5', margin: 0 }}>
+                    Điểm khác biệt của Hanora là không chỉ dừng lại ở tra nghĩa thông thường, mà hướng tới <strong>giúp người học học sâu và ghi nhớ từ vựng ngay trên ngữ cảnh đang đọc.</strong>
                   </p>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Subsection 2.2: Vision - Mission - Core Values */}
-          <div style={{ 
-            backgroundColor: 'rgba(219, 234, 254, 0.25)', 
-            border: '1px solid rgba(226, 232, 240, 0.8)', 
-            borderRadius: '24px', 
-            padding: '3.5rem 2.5rem',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '2.5rem'
-          }}>
-            <div style={{ textAlign: 'center', position: 'relative' }}>
-              <h2 style={{ fontSize: '2.2rem', color: '#0f172a', fontWeight: '800', margin: 0, position: 'relative', display: 'inline-block' }}>
-                Tầm nhìn – Sứ mệnh – Giá trị cốt lõi
-                <span style={{ color: 'var(--color-primary)', fontSize: '1.25rem', position: 'absolute', top: '-0.25rem', right: '-1rem', fontWeight: 'bold' }}>+</span>
-              </h2>
+              </div>
             </div>
 
-            <div style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
-              gap: '2rem' 
+            {/* Column 3: Tầm nhìn, Sứ mệnh & Giá trị cốt lõi */}
+            <div className="scale-hover" style={{ 
+              padding: '2.5rem 2rem', 
+              backgroundColor: '#ffffff',
+              border: '1px solid #e2e8f0',
+              borderRadius: '24px',
+              boxShadow: 'var(--shadow-sm)',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              gap: '1.5rem',
+              position: 'relative',
+              overflow: 'hidden'
             }}>
-              
-              {/* Vision Card */}
-              <div className="card" style={{ 
-                padding: '2.5rem 2rem', 
-                backgroundColor: '#ffffff', 
-                border: '1px solid #e2e8f0', 
-                borderRadius: '16px',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '1.25rem',
-                textAlign: 'left',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.01)'
-              }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                  <div style={{ 
-                    width: '2.5rem', 
-                    height: '2.5rem', 
-                    borderRadius: '50%', 
-                    backgroundColor: 'rgba(22, 143, 239, 0.08)', 
-                    color: 'var(--color-primary)', 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    justifyContent: 'center',
-                    flexShrink: 0
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                <span style={{ 
+                  padding: '0.35rem 0.75rem', 
+                  fontSize: '0.8rem', 
+                  fontWeight: 'bold', 
+                  color: '#8b5cf6', 
+                  backgroundColor: 'rgba(139, 92, 246, 0.06)', 
+                  borderRadius: '99px',
+                  width: 'fit-content'
+                }}>
+                  Định hướng & Giá trị
+                </span>
+                
+                <h3 style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--deep-blue)', margin: 0 }}>
+                  Tầm nhìn & Sứ mệnh
+                </h3>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                  {/* Vision Card */}
+                  <div style={{
+                    padding: '0.85rem 1rem',
+                    backgroundColor: '#f8fafc',
+                    border: '1px solid #e2e8f0',
+                    borderRadius: '12px',
+                    display: 'flex',
+                    gap: '0.75rem'
                   }}>
-                    <Eye size={18} />
+                    <div style={{ color: 'var(--color-primary)', display: 'flex', alignItems: 'center' }}><Eye size={18} /></div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
+                      <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--deep-blue)' }}>Tầm nhìn (Vision)</span>
+                      <span style={{ fontSize: '0.775rem', color: 'var(--color-text-secondary)', lineHeight: '1.4' }}>
+                        Trở thành nền tảng học tiếng Trung AI hàng đầu thông qua nội dung thực tế.
+                      </span>
+                    </div>
                   </div>
-                  <h3 style={{ fontSize: '1.15rem', color: '#0f172a', fontWeight: '800', margin: 0 }}>Tầm nhìn</h3>
+
+                  {/* Mission Card */}
+                  <div style={{
+                    padding: '0.85rem 1rem',
+                    backgroundColor: '#f8fafc',
+                    border: '1px solid #e2e8f0',
+                    borderRadius: '12px',
+                    display: 'flex',
+                    gap: '0.75rem'
+                  }}>
+                    <div style={{ color: 'var(--color-primary)', display: 'flex', alignItems: 'center' }}><Target size={18} /></div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
+                      <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--deep-blue)' }}>Sứ mệnh (Mission)</span>
+                      <span style={{ fontSize: '0.775rem', color: 'var(--color-text-secondary)', lineHeight: '1.4' }}>
+                        Đơn giản hóa việc học bằng cách tích hợp liền mạch đọc, tra cứu, lưu và ôn tập từ vựng.
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <p style={{ color: '#475569', fontSize: '0.9rem', lineHeight: '1.65', margin: 0 }}>
-                  Trở thành nền tảng học tiếng Trung hàng đầu ứng dụng AI, giúp hàng triệu người học trên thế giới tiếp cận tri thức một cách dễ dàng, cá nhân hóa và hiệu quả.
-                </p>
               </div>
 
-              {/* Mission Card */}
-              <div className="card" style={{ 
-                padding: '2.5rem 2rem', 
-                backgroundColor: '#ffffff', 
-                border: '1px solid #e2e8f0', 
-                borderRadius: '16px',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '1.25rem',
-                textAlign: 'left',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.01)'
+              {/* Giá trị cốt lõi */}
+              <div style={{ 
+                borderTop: '1px solid #f1f5f9', 
+                paddingTop: '1.25rem',
+                marginTop: '0.5rem'
               }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                  <div style={{ 
-                    width: '2.5rem', 
-                    height: '2.5rem', 
-                    borderRadius: '50%', 
-                    backgroundColor: 'rgba(22, 143, 239, 0.08)', 
-                    color: 'var(--color-primary)', 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    justifyContent: 'center',
-                    flexShrink: 0
-                  }}>
-                    <Target size={18} />
-                  </div>
-                  <h3 style={{ fontSize: '1.15rem', color: '#0f172a', fontWeight: '800', margin: 0 }}>Sứ mệnh</h3>
-                </div>
-                <p style={{ color: '#475569', fontSize: '0.9rem', lineHeight: '1.65', margin: 0 }}>
-                  Hanora tận dụng công nghệ AI để đồng hành cùng người học, cung cấp trải nghiệm học tập thông minh, tiết kiệm thời gian và mang lại kết quả thực chất.
-                </p>
-              </div>
-
-              {/* Core Values Card */}
-              <div className="card" style={{ 
-                padding: '2.5rem 2rem', 
-                backgroundColor: '#ffffff', 
-                border: '1px solid #e2e8f0', 
-                borderRadius: '16px',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '1.25rem',
-                textAlign: 'left',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.01)'
-              }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                  <div style={{ 
-                    width: '2.5rem', 
-                    height: '2.5rem', 
-                    borderRadius: '50%', 
-                    backgroundColor: 'rgba(22, 143, 239, 0.08)', 
-                    color: 'var(--color-primary)', 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    justifyContent: 'center',
-                    flexShrink: 0
-                  }}>
-                    <Diamond size={18} />
-                  </div>
-                  <h3 style={{ fontSize: '1.15rem', color: '#0f172a', fontWeight: '800', margin: 0 }}>Giá trị cốt lõi</h3>
-                </div>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <strong style={{ fontSize: '0.85rem', color: '#1e293b', display: 'block', marginBottom: '0.75rem' }}>
+                  Giá trị cốt lõi:
+                </strong>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
                   {[
-                    'Lấy người học làm trung tâm',
-                    'Không ngừng đổi mới',
-                    'Chất lượng & Hiệu quả',
-                    'Minh bạch & Trách nhiệm'
+                    { label: 'Learner First', text: 'Học viên là trung tâm', color: 'rgba(22, 143, 239, 0.05)', textColor: 'var(--color-primary)' },
+                    { label: 'Simple', text: 'Đơn giản hóa', color: 'rgba(16, 185, 129, 0.05)', textColor: '#10b981' },
+                    { label: 'Personalized', text: 'Cá nhân hóa', color: 'rgba(139, 92, 246, 0.05)', textColor: '#8b5cf6' },
+                    { label: 'Innovative', text: 'Đổi mới sáng tạo', color: 'rgba(245, 158, 11, 0.05)', textColor: '#f59e0b' }
                   ].map((val, idx) => (
-                    <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', color: '#475569' }}>
-                      <span style={{ color: 'var(--color-primary)', fontWeight: 'bold' }}>•</span>
-                      <span>{val}</span>
-                    </li>
+                    <div key={idx} style={{
+                      padding: '0.4rem 0.6rem',
+                      backgroundColor: val.color,
+                      border: `1px solid ${val.textColor}1a`,
+                      borderRadius: '8px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '0.1rem'
+                    }}>
+                      <span style={{ fontSize: '0.75rem', fontWeight: '800', color: val.textColor }}>{val.label}</span>
+                      <span style={{ fontSize: '0.65rem', color: 'var(--color-text-secondary)' }}>{val.text}</span>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
-
             </div>
+
           </div>
 
           {/* Subsection 2.3: Development Roadmap */}
@@ -426,36 +487,42 @@ export function AboutPage() {
                 zIndex: 0
               }}></div>
 
-              <div className="timeline-row">
+              <div className="timeline-row" style={{ minWidth: '1100px' }}>
                 {[
                   {
-                    date: '2024.05',
-                    title: 'Ý tưởng',
-                    desc: 'Nhận thấy những khó khăn thực tế của người học tiếng Trung, nhóm bắt đầu hình thành ý tưởng Hanora.',
+                    date: '04/2026 – 05/2026',
+                    title: '01 — Xây dựng MVP',
+                    desc: 'Xây dựng phiên bản đầu tiên và kiểm chứng nhu cầu thực tế. PDF · DOCX · OCR · Reader · Tra từ · Vocabulary · Flashcard',
                     icon: Lightbulb
                   },
                   {
-                    date: '2024.07',
-                    title: 'Nghiên cứu & Phân tích',
-                    desc: 'Nghiên cứu người dùng, phân tích nhu cầu và xây dựng giải pháp ban đầu.',
-                    icon: Search
-                  },
-                  {
-                    date: '2024.09',
-                    title: 'Phát triển MVP',
-                    desc: 'Xây dựng phiên bản MVP với các tính năng cơ bản và kiểm thử nội bộ.',
+                    date: '05/2026 – 08/2026',
+                    title: '02 — Hoàn thiện sản phẩm',
+                    desc: 'Cải thiện trải nghiệm dựa trên phản hồi người dùng và tối ưu hệ thống. UX/UI · Vocabulary · Flashcard · Learning Experience',
                     icon: Code
                   },
                   {
-                    date: '2025.01',
-                    title: 'Hoàn thiện sản phẩm',
-                    desc: 'Tích hợp AI, tối ưu trải nghiệm và mở rộng hệ thống tính năng.',
+                    date: '09/2026 – 12/2026',
+                    title: '03 — AI Pronunciation',
+                    desc: 'Mở rộng từ trải nghiệm đọc sang luyện nói và phát âm bằng AI. Speech Recognition · Tone · Intonation',
+                    icon: Volume2
+                  },
+                  {
+                    date: '01/2027 – 03/2027',
+                    title: '04 — AI Tutor',
+                    desc: 'Phát triển trợ lý học tập AI có khả năng hỗ trợ người học theo ngữ cảnh và nhu cầu cá nhân. Q&A · Grammar · Learning Suggestions',
+                    icon: Cpu
+                  },
+                  {
+                    date: '03/2027 – 12/2027',
+                    title: '05 — Hanora Mobile',
+                    desc: 'Đưa Hanora lên thiết bị di động để người học có thể học mọi lúc, mọi nơi. iOS · Android · Data Synchronization',
                     icon: Rocket
                   },
                   {
-                    date: '2025.05',
-                    title: 'Ra mắt & Đoạt giải',
-                    desc: 'Hanora chính thức hoàn thiện và đoạt Giải Ba tại cuộc thi FShark 2026.',
+                    date: '2028+',
+                    title: '06 — Mở rộng hệ sinh thái',
+                    desc: 'Mở rộng Hanora từ nền tảng học tiếng Trung thành hệ sinh thái học ngôn ngữ ứng dụng AI. Multi-language · Community',
                     icon: Trophy,
                     isGold: true
                   }
@@ -488,7 +555,7 @@ export function AboutPage() {
                     </div>
                     
                     {/* Date */}
-                    <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--color-primary)', letterSpacing: '0.5px' }}>
+                    <span style={{ fontSize: '0.8rem', fontWeight: 'bold', color: 'var(--color-primary)', letterSpacing: '0.5px' }}>
                       {step.date}
                     </span>
                     
@@ -498,7 +565,7 @@ export function AboutPage() {
                     </h4>
                     
                     {/* Description */}
-                    <p style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: '1.6', margin: 0, maxWidth: '170px' }}>
+                    <p style={{ fontSize: '0.75rem', color: '#64748b', lineHeight: '1.6', margin: 0, maxWidth: '170px' }}>
                       {step.desc}
                     </p>
                   </div>
@@ -509,72 +576,259 @@ export function AboutPage() {
 
         </section>
 
+
         {/* ==========================================
-           SECTION 03: ALL-IN-ONE ECOSYSTEM
+           SECTION 04: THÀNH TỰU NỔI BẬT (FSHARK & METRICS)
            ========================================== */}
-        <section style={{ padding: '4rem 0', maxWidth: '1440px', width: '100%', margin: '0 auto' }}>
-          <div style={{ 
-            backgroundColor: 'var(--color-bg-card)', 
-            border: '1px solid var(--color-border)', 
-            borderRadius: 'var(--radius-xl)', 
-            padding: '3rem',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '3rem',
-            alignItems: 'center',
-            textAlign: 'left',
-            boxShadow: 'var(--shadow-sm)'
-          }}>
-            {/* Left side */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-              <div style={{
-                padding: '0.35rem 0.75rem',
-                fontSize: '0.75rem',
-                fontWeight: 'bold',
-                color: 'var(--color-primary)',
-                backgroundColor: 'var(--color-primary-light)',
-                borderRadius: 'var(--radius-full)',
-                width: 'fit-content'
-              }}>
-                Giải pháp Hanora
+        <section style={{ padding: '2rem 0', width: '100%', maxWidth: '1440px', margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', width: '100%', alignItems: 'center', textAlign: 'left' }}>
+            
+            {/* Left Column Content */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                <span style={{ 
+                  fontSize: '0.85rem', 
+                  fontWeight: '800', 
+                  color: 'var(--color-primary)', 
+                  textTransform: 'uppercase', 
+                  letterSpacing: '1.5px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '2px'
+                }}>
+                  Thành tựu Hanora <span style={{ fontSize: '0.9rem' }}>+</span>
+                </span>
+                <h2 style={{ 
+                  fontSize: '2.4rem', 
+                  fontWeight: '800', 
+                  color: 'var(--deep-blue)', 
+                  lineHeight: '1.25', 
+                  margin: 0,
+                  letterSpacing: '-0.5px'
+                }}>
+                  Những cột mốc tự hào<br />
+                  trên hành trình kiến tạo<br />
+                  <span style={{ color: 'var(--color-primary)' }}>giá trị giáo dục</span>
+                </h2>
               </div>
               
-              <h2 style={{ fontSize: '2.2rem', fontWeight: 'bold', color: 'var(--deep-blue)', margin: 0 }}>
-                Hệ sinh thái All-in-One
-              </h2>
-              
-              <p style={{ color: 'var(--color-text-secondary)', fontSize: '1rem', lineHeight: '1.6', margin: 0 }}>
-                Hanora kết hợp không gian làm việc tài liệu, quản lý từ vựng thông minh, hệ thống ôn tập Flashcard (Spaced Repetition) và Trợ lý AI DeepSeek vào một nền tảng duy nhất, liền mạch.
+              <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.05rem', lineHeight: '1.65', margin: 0 }}>
+                Hanora không ngừng nỗ lực để mang đến giải pháp học tiếng Trung thông minh, hiệu quả và dễ tiếp cận nhất cho người học.
               </p>
-              
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                {[
-                  'Không gian làm việc tích hợp dịch thuật AI',
-                  'Trích xuất và quản lý từ vựng tự động',
-                  'Ôn tập cá nhân hóa với thuật toán thông minh'
-                ].map((item, idx) => (
-                  <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '0.95rem', color: 'var(--deep-blue)', fontWeight: '500' }}>
-                    <div style={{ color: 'var(--color-primary)', display: 'flex', alignItems: 'center' }}>
-                      <CheckCircle2 size={18} />
-                    </div>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
 
-            {/* Right side screenshot */}
-            <div style={{ border: '1px solid var(--color-border)', borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
-              <img src={allInOneImg} alt="Workspace" style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} />
+            {/* Right Column Showcase Image */}
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+              <div className="glow-breath" style={{ 
+                width: '100%',
+                maxWidth: '650px',
+                borderRadius: 'var(--radius-lg)',
+                overflow: 'hidden',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}>
+                <img 
+                  src={heroIllustration} 
+                  alt="Hanora Trophy with Mascot" 
+                  style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain' }} 
+                />
+              </div>
+            </div>
+
+          </div>
+
+          {/* Awards details grid */}
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', 
+            gap: '2.5rem', 
+            alignItems: 'stretch', 
+            textAlign: 'left',
+            marginTop: '3.5rem'
+          }}>
+            {/* Left Card: FShark */}
+            <div className="card scale-hover" style={{
+              padding: '2.5rem 2.25rem',
+              backgroundColor: '#ffffff',
+              border: '1px solid #e2e8f0',
+              borderRadius: '24px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              gap: '1.5rem',
+              boxShadow: 'var(--shadow-sm)'
+            }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', color: 'rgb(245, 158, 11)' }}>
+                  <div style={{
+                    width: '3.5rem',
+                    height: '3.5rem',
+                    borderRadius: '50%',
+                    backgroundColor: 'rgba(245, 158, 11, 0.08)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0
+                  }}>
+                    <Trophy size={28} />
+                  </div>
+                  <div>
+                    <h4 style={{ fontSize: '1.35rem', fontWeight: '800', margin: 0, color: 'var(--deep-blue)' }}>Giải 3 FSHARK 2026</h4>
+                    <p style={{ fontSize: '0.85rem', margin: '0.15rem 0 0', color: 'var(--color-primary)', fontWeight: '700' }}>FPT University Đà Nẵng</p>
+                  </div>
+                </div>
+                
+                <p style={{ fontSize: '0.95rem', color: 'var(--color-text-secondary)', lineHeight: '1.65', margin: 0 }}>
+                  Hanora đạt Giải 3 tại cuộc thi FShark 2026 - Cuộc thi khởi nghiệp công nghệ uy tín dành cho sinh viên.
+                </p>
+              </div>
+
+              {/* FShark Image */}
+              <div style={{ 
+                borderRadius: '16px', 
+                overflow: 'hidden', 
+                border: '1px solid #f1f5f9',
+                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.03)',
+                aspectRatio: '16/11',
+                width: '100%'
+              }}>
+                <img 
+                  src={awardImage} 
+                  alt="Giải 3 FShark 2026" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} 
+                />
+              </div>
+            </div>
+
+            {/* Right Card: CYE Junior */}
+            <div className="card scale-hover" style={{
+              padding: '2.5rem 2.25rem',
+              backgroundColor: '#ffffff',
+              border: '1px solid #e2e8f0',
+              borderRadius: '24px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              gap: '1.5rem',
+              boxShadow: 'var(--shadow-sm)'
+            }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                  <div style={{
+                    width: '3.5rem',
+                    height: '3.5rem',
+                    borderRadius: '50%',
+                    backgroundColor: 'rgba(249, 115, 22, 0.08)',
+                    color: 'rgb(249, 115, 22)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0
+                  }}>
+                    <Rocket size={28} />
+                  </div>
+                  <div>
+                    <span style={{
+                      padding: '0.2rem 0.6rem',
+                      fontSize: '0.7rem',
+                      fontWeight: 'bold',
+                      color: '#f59e0b',
+                      backgroundColor: 'rgba(245, 158, 11, 0.08)',
+                      borderRadius: '6px',
+                      display: 'inline-block',
+                      marginBottom: '0.25rem',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.5px'
+                    }}>
+                      CUỘC THI ĐANG DIỄN RA
+                    </span>
+                    <h4 style={{ fontSize: '1.35rem', fontWeight: '800', margin: 0, color: 'var(--deep-blue)' }}>Chung kết CYE JUNIOR VIETNAM 2026</h4>
+                  </div>
+                </div>
+                
+                <p style={{ fontSize: '0.95rem', color: 'var(--color-text-secondary)', lineHeight: '1.65', margin: 0 }}>
+                  Một cột mốc đáng nhớ của HANORA, ghi dấu hành trình không ngừng hoàn thiện, đổi mới và phát triển.
+                </p>
+              </div>
+
+              {/* CYE Image */}
+              <div style={{ 
+                borderRadius: '16px', 
+                overflow: 'hidden', 
+                border: '1px solid #f1f5f9',
+                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.03)',
+                aspectRatio: '16/11',
+                width: '100%'
+              }}>
+                <img 
+                  src={cyeImage} 
+                  alt="Chung kết CYE Junior Vietnam 2026" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} 
+                />
+              </div>
             </div>
           </div>
         </section>
 
         {/* ==========================================
-           SECTION 04: QUOTE BANNER
+           SECTION 05: ĐỘI NGŨ PHÁT TRIỂN
+           ========================================== */}
+        <section style={{ padding: '2rem 0', textAlign: 'center', width: '100%', maxWidth: '1440px', margin: '0 auto' }}>
+          <div style={{ marginBottom: '3rem' }}>
+            <h2 style={{ fontSize: '2.2rem', fontWeight: '800', color: 'var(--deep-blue)', marginBottom: '0.5rem' }}>
+              ĐỘI NGŨ HANORA
+            </h2>
+            <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.1rem' }}>
+              Những thành viên tâm huyết đồng sáng lập và kiến tạo nền tảng Hanora.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', justifyContent: 'center' }}>
+            {[
+              { name: 'Nguyễn Nam Sơn', role: 'CEO', img: avatar1 },
+              { name: 'Nguyễn Lê Minh Hiền', role: 'CFO', img: avatar2 },
+              { name: 'Vũ Lê Duy', role: 'CISO', img: avatar3 },
+              { name: 'Trần Văn Tùng', role: 'CTO', img: avatar4 },
+              { name: 'Kiều Thị Thu Phương', role: 'CPO', img: avatar5 },
+              { name: 'Dương Thị Thảo Nhi', role: 'CMO', img: avatar6 }
+            ].map((member, idx) => (
+              <div key={idx} className="card scale-hover" style={{ 
+                display: 'flex', 
+                flexDirection: 'column', 
+                alignItems: 'center', 
+                gap: '1rem',
+                backgroundColor: '#ffffff',
+                border: '1px solid #e2e8f0',
+                borderRadius: '20px',
+                padding: '2rem 1.5rem',
+                boxShadow: 'var(--shadow-sm)'
+              }}>
+                <div style={{ 
+                  width: '120px', 
+                  height: '120px', 
+                  borderRadius: '50%', 
+                  overflow: 'hidden',
+                  border: '3px solid rgba(22, 143, 239, 0.1)',
+                  boxShadow: 'var(--shadow-sm)',
+                  backgroundColor: 'var(--color-bg)'
+                }}>
+                  <img src={member.img} alt={member.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <div style={{ textAlign: 'center' }}>
+                  <h4 style={{ fontSize: '1.05rem', fontWeight: 'bold', color: 'var(--deep-blue)', margin: '0 0 0.25rem' }}>{member.name}</h4>
+                  <p style={{ fontSize: '0.8rem', color: 'var(--color-primary)', fontWeight: '600', margin: 0 }}>{member.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ==========================================
+           SECTION 06: QUOTE BANNER & CTA
            ========================================== */}
         <section style={{ 
-          margin: '3rem auto',
+          margin: '3rem auto 1rem',
           maxWidth: '1440px',
           width: '100%',
           padding: '5rem 2rem',
@@ -584,12 +838,31 @@ export function AboutPage() {
           color: 'var(--white)',
           textAlign: 'center',
           position: 'relative',
-          boxShadow: 'var(--shadow-lg)'
+          boxShadow: 'var(--shadow-lg)',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '1.5rem'
         }}>
-          <div style={{ fontSize: '5rem', lineHeight: '1', fontFamily: 'serif', color: 'rgba(255, 255, 255, 0.2)', marginBottom: '0.5rem' }}>“</div>
+          <div style={{ fontSize: '5rem', lineHeight: '1', fontFamily: 'serif', color: 'rgba(255, 255, 255, 0.2)', marginBottom: '-1.5rem' }}>“</div>
           <h2 style={{ fontSize: '2.2rem', fontWeight: '800', maxWidth: '800px', margin: '0 auto', lineHeight: '1.4', color: 'var(--white)' }}>
             Biến việc học tiếng Trung thành một hành trình chủ động, cá nhân hóa và hiệu quả.
           </h2>
+          <div style={{ marginTop: '1rem' }}>
+            <Link to="/contact" className="btn btn-primary" style={{ 
+              backgroundColor: '#ffffff', 
+              color: '#1d4ed8', 
+              fontWeight: 'bold', 
+              padding: '0.85rem 2.25rem', 
+              borderRadius: '9999px',
+              textDecoration: 'none',
+              transition: 'transform 0.2s',
+              border: 'none',
+              boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
+            }}>
+              Liên hệ hợp tác &rarr;
+            </Link>
+          </div>
         </section>
 
       </div>

@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import { MainLayout } from '../components/layout/MainLayout';
 import { 
-  Phone, Mail, MessageSquare, MapPin, ArrowRight, Send, CheckCircle2, 
-  ChevronDown, ChevronUp, HelpCircle, Shield
+  Mail, MessageSquare, ArrowRight, Send, CheckCircle2, 
+  ChevronDown, ChevronUp, HelpCircle
 } from 'lucide-react';
 
 // Import local assets matching the user's reference design
-import heroIllustration from '../assets/034e8958-037f-4339-bf34-0f25604d9f64.png'; // Mascot next to tablet & blue mug
-import pandaMascot from '../assets/StreakImage.png';
+import heroIllustration from '../assets/89a77990-468b-4e9e-affa-4dce029fac40-removebg-preview.png';
+import facebookQr from '../assets/qr fb (2).png';
+import webQr from '../assets/qr web.png';
+import pandaMascot from '../assets/StreakImage-removebg-preview.png';
+import projectImage from '../assets/29e2f86e-a1dd-49c5-b0f3-a703257f9de9.png';
 
 export function ContactPage() {
   const [formData, setFormData] = useState({
@@ -35,34 +38,36 @@ export function ContactPage() {
 
   const contactCards = [
     {
-      title: 'Hotline',
-      val: '1900 63 64 85',
-      desc: 'Thứ 2 - Thứ 6: 8:00 - 18:00\nThứ 7: 8:00 - 12:00',
-      icon: Phone,
-      color: 'rgba(22, 143, 239, 0.05)'
-    },
-    {
       title: 'Email',
       val: 'hello@hanora.vn',
       desc: 'Phản hồi trong vòng 24h',
       icon: Mail,
-      color: 'rgba(22, 143, 239, 0.05)'
+      color: 'rgba(22, 143, 239, 0.05)',
+      isLink: true,
+      link: 'mailto:hello@hanora.vn'
     },
     {
       title: 'Live chat',
       val: 'Chat ngay với chúng tôi',
       desc: 'Hỗ trợ trực tuyến\n8:00 - 21:00 hàng ngày',
       icon: MessageSquare,
-      color: 'rgba(22, 143, 239, 0.05)'
-    },
-    {
-      title: 'Địa chỉ',
-      val: 'Lô 34, Đường 2 Tháng 9,\nHải Châu, Đà Nẵng, Việt Nam',
-      desc: 'Xem trên bản đồ →',
-      icon: MapPin,
       color: 'rgba(22, 143, 239, 0.05)',
       isLink: true,
-      link: '#office-map'
+      link: 'https://www.facebook.com/profile.php?id=61590345896877'
+    },
+    {
+      title: 'Mã FB',
+      isQr: true,
+      qrImg: facebookQr,
+      linkText: 'Facebook Hanora',
+      link: 'https://www.facebook.com/profile.php?id=61590345896877'
+    },
+    {
+      title: 'Mã Web',
+      isQr: true,
+      qrImg: webQr,
+      linkText: 'hanora.id.vn',
+      link: 'https://hanora.id.vn'
     }
   ];
 
@@ -104,73 +109,39 @@ export function ContactPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', width: '100%', alignItems: 'center', textAlign: 'left' }}>
             
             {/* Left Column Content */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                 <span style={{ 
                   fontSize: '0.85rem', 
                   fontWeight: '800', 
                   color: 'var(--color-primary)', 
                   textTransform: 'uppercase', 
-                  letterSpacing: '1.5px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '2px'
+                  letterSpacing: '1.5px'
                 }}>
-                  Liên hệ Hanora <span style={{ fontSize: '0.9rem' }}>+</span>
+                  KẾT NỐI CÙNG HANORA
                 </span>
                 <h1 style={{ 
                   fontSize: '2.6rem', 
                   fontWeight: '800', 
-                  color: '#0f172a', 
+                  color: 'var(--deep-blue)', 
                   lineHeight: '1.25', 
                   margin: 0,
                   letterSpacing: '-0.5px'
                 }}>
-                  Chúng tôi luôn sẵn sàng<br />
-                  lắng nghe và hỗ trợ bạn!
+                  Bạn muốn tìm hiểu thêm về Hanora?
                 </h1>
               </div>
               
-              <p style={{ color: '#475569', fontSize: '1.05rem', lineHeight: '1.65', margin: 0, maxWidth: '520px' }}>
-                Dù bạn có câu hỏi, cần tư vấn giải pháp hay muốn hợp tác, đội ngũ Hanora luôn sẵn sàng đồng hành cùng bạn trên hành trình nâng tầm giáo dục.
+              <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.05rem', lineHeight: '1.65', margin: 0, maxWidth: '520px' }}>
+                Hãy liên hệ với chúng tôi nếu bạn có câu hỏi, phản hồi hoặc muốn đồng hành cùng Hanora trên hành trình xây dựng trải nghiệm học tiếng Trung tốt hơn.
               </p>
-
-              {/* Checklist */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                {[
-                  'Phản hồi nhanh chóng trong vòng 24h',
-                  'Tư vấn giải pháp phù hợp với nhu cầu của bạn',
-                  'Hỗ trợ tận tâm - Đồng hành lâu dài'
-                ].map((item, idx) => (
-                  <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-                    <div style={{
-                      width: '1.25rem',
-                      height: '1.25rem',
-                      borderRadius: '50%',
-                      backgroundColor: 'rgba(22, 143, 239, 0.1)',
-                      color: 'var(--color-primary)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0
-                    }}>
-                      <CheckCircle2 size={12} />
-                    </div>
-                    <span style={{ fontSize: '0.9rem', color: '#475569', fontWeight: '500' }}>
-                      {item}
-                    </span>
-                  </div>
-                ))}
-              </div>
             </div>
 
             {/* Right Column Showcase Image */}
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-              <div className="glow-breath" style={{ 
+              <div style={{ 
                 width: '100%',
                 maxWidth: '680px',
-                borderRadius: '24px',
-                overflow: 'hidden',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center'
@@ -195,6 +166,45 @@ export function ContactPage() {
           gap: '1.25rem' 
         }}>
           {contactCards.map((card, idx) => {
+            if (card.isQr) {
+              return (
+                <div key={idx} className="card scale-hover" style={{ 
+                  padding: '1.5rem', 
+                  display: 'flex', 
+                  gap: '1rem',
+                  alignItems: 'center',
+                  textAlign: 'left',
+                  backgroundColor: '#ffffff',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '20px',
+                  boxShadow: '0 4px 15px rgba(0,0,0,0.005)'
+                }}>
+                  <div style={{ 
+                    padding: '0.4rem', 
+                    backgroundColor: '#ffffff', 
+                    border: '1px solid #cbd5e1', 
+                    borderRadius: '12px',
+                    display: 'inline-flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    width: '70px',
+                    height: '70px',
+                    flexShrink: 0
+                  }}>
+                    <img src={card.qrImg} alt={card.title} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                    <span style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px', fontWeight: 'bold' }}>
+                      {card.title}
+                    </span>
+                    <a href={card.link} target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.95rem', fontWeight: '800', color: 'var(--color-primary)', textDecoration: 'none', lineHeight: '1.3' }}>
+                      {card.linkText}
+                    </a>
+                  </div>
+                </div>
+              );
+            }
+
             const Inner = () => (
               <>
                 <div style={{
@@ -214,7 +224,7 @@ export function ContactPage() {
                   <span style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px', fontWeight: 'bold' }}>
                     {card.title}
                   </span>
-                  <span style={{ fontSize: '1.05rem', fontWeight: '800', color: '#0f172a', whiteSpace: 'pre-line', lineHeight: '1.3' }}>
+                  <span style={{ fontSize: '1.05rem', fontWeight: '800', color: 'var(--deep-blue)', whiteSpace: 'pre-line', lineHeight: '1.3' }}>
                     {card.val}
                   </span>
                   <span style={{ fontSize: '0.75rem', color: '#64748b', whiteSpace: 'pre-line', marginTop: '4px', lineHeight: '1.4' }}>
@@ -226,7 +236,7 @@ export function ContactPage() {
 
             if (card.isLink) {
               return (
-                <a key={idx} href={card.link} className="card scale-hover" style={{ 
+                <a key={idx} href={card.link} target={card.link.startsWith('http') ? "_blank" : undefined} rel={card.link.startsWith('http') ? "noopener noreferrer" : undefined} className="card scale-hover" style={{ 
                   padding: '1.5rem', 
                   display: 'flex', 
                   gap: '1rem',
@@ -272,7 +282,7 @@ export function ContactPage() {
         }}>
           {/* Message Form */}
           <div className="card" style={{ padding: '2.5rem', backgroundColor: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '24px' }}>
-            <h3 style={{ fontSize: '1.4rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.5rem 0' }}>
+            <h3 style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--deep-blue)', margin: '0 0 0.5rem 0' }}>
               Gửi tin nhắn cho chúng tôi
             </h3>
             <p style={{ color: '#64748b', fontSize: '0.85rem', marginBottom: '1.75rem' }}>
@@ -340,13 +350,13 @@ export function ContactPage() {
                     />
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                    <label style={{ fontSize: '0.8rem', fontWeight: 'bold', color: '#475569' }}>Chủ đề *</label>
+                    <label style={{ fontSize: '0.8rem', fontWeight: 'bold', color: '#475569' }}>Chủ đề quan tâm *</label>
                     <select 
                       value={formData.subject}
                       onChange={(e) => setFormData({...formData, subject: e.target.value})}
-                      style={{ padding: '0.65rem 0.85rem', border: '1px solid #cbd5e1', borderRadius: '10px', fontSize: '0.85rem', outline: 'none', backgroundColor: '#ffffff' }}
+                      style={{ padding: '0.65rem 0.85rem', border: '1px solid #cbd5e1', borderRadius: '10px', fontSize: '0.85rem', outline: 'none', backgroundColor: '#ffffff', color: formData.subject === 'Chọn chủ đề' ? '#94a3b8' : '#0f172a' }}
                     >
-                      <option>Chọn chủ đề</option>
+                      <option disabled>Chọn chủ đề</option>
                       <option>Tư vấn giải pháp EdTech</option>
                       <option>Đóng góp ý kiến</option>
                       <option>Hợp tác phát triển</option>
@@ -384,76 +394,25 @@ export function ContactPage() {
                 >
                   <Send size={16} /> Gửi tin nhắn
                 </button>
-
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', justifyContent: 'center', color: '#94a3b8', fontSize: '0.7rem', marginTop: '0.5rem' }}>
-                  <Shield size={12} />
-                  <span>Thông tin của bạn được bảo mật và chỉ sử dụng để liên hệ hỗ trợ.</span>
-                </div>
               </form>
             )}
           </div>
 
-          {/* Interactive Map Block */}
+          {/* Interactive Map Block replaced by HANORA Image */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            <h3 style={{ fontSize: '1.4rem', fontWeight: '800', color: '#0f172a', margin: 0 }}>
-              Văn phòng Hanora
-            </h3>
-
-            {/* Google Maps Iframe wrapper */}
+            {/* Hanora Image wrapper */}
             <div style={{ 
               borderRadius: '24px', 
               overflow: 'hidden', 
               border: '1px solid #e2e8f0', 
               boxShadow: '0 4px 20px rgba(0,0,0,0.015)',
-              height: '300px',
-              backgroundColor: '#f1f5f9'
+              backgroundColor: '#ffffff'
             }}>
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.469956488339!2d108.21980867595562!3d16.03588934015632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219ee5c7bc5b5%3A0xea5f4a7c0678229b!2zMzQgxJDhuq_uZyBUaMO5eSBUcsOibSwgSG_DoCBLaMawxqFuZyBOYW0sIEPhuqltIEzhu4csIMSQw6AgTuG6tW5nIDUwMDAwMCwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1712860470123!5m2!1sen!2s" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen="" 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade"
+              <img 
+                src={projectImage} 
+                alt="Hanora Team Project" 
+                style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} 
               />
-            </div>
-
-            {/* Address Footer bar */}
-            <div style={{ 
-              display: 'flex', 
-              justifyContent: 'space-between', 
-              alignItems: 'center', 
-              backgroundColor: '#ffffff', 
-              border: '1px solid #e2e8f0', 
-              padding: '1rem 1.5rem', 
-              borderRadius: '16px',
-              gap: '1rem'
-            }}>
-              <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
-                <MapPin size={18} style={{ color: 'var(--color-primary)', flexShrink: 0 }} />
-                <span style={{ fontSize: '0.8rem', color: '#475569', fontWeight: 'bold' }}>
-                  Lô 34, Đường 2 Tháng 9, Quận Hải Châu, Đà Nẵng, Việt Nam
-                </span>
-              </div>
-              <a 
-                href="https://maps.app.goo.gl/t1y11K9V6K9V" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                style={{ 
-                  backgroundColor: '#f1f5f9', 
-                  color: '#475569', 
-                  fontSize: '0.75rem', 
-                  fontWeight: 'bold', 
-                  padding: '0.5rem 1rem', 
-                  borderRadius: '8px', 
-                  textDecoration: 'none',
-                  whiteSpace: 'nowrap'
-                }}
-                className="scale-hover"
-              >
-                Chỉ đường
-              </a>
             </div>
           </div>
         </section>
@@ -462,7 +421,7 @@ export function ContactPage() {
            SECTION 04: FAQS ACCORDION
            ========================================== */}
         <section style={{ padding: '2rem 0', display: 'flex', flexDirection: 'column', gap: '2.5rem', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '2.2rem', color: '#0f172a', fontWeight: '800', margin: 0, position: 'relative', display: 'inline-block' }}>
+          <h2 style={{ fontSize: '2.2rem', color: 'var(--deep-blue)', fontWeight: '800', margin: 0, position: 'relative', display: 'inline-block' }}>
             Câu hỏi thường gặp
             <span style={{ color: 'var(--color-primary)', fontSize: '1.25rem', position: 'absolute', top: '-0.25rem', right: '-1rem', fontWeight: 'bold' }}>+</span>
           </h2>
@@ -519,7 +478,7 @@ export function ContactPage() {
                           }}>
                             <HelpCircle size={12} />
                           </div>
-                          <span style={{ fontSize: '0.9rem', fontWeight: '800', color: '#0f172a' }}>
+                          <span style={{ fontSize: '0.9rem', fontWeight: '800', color: 'var(--deep-blue)' }}>
                             {faq.q}
                           </span>
                         </div>
