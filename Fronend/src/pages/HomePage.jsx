@@ -5,22 +5,23 @@ import {
   Cpu, Award, Users, FileText, ChevronRight, CheckCircle2, 
   AlertCircle, Star, Github, Activity, HelpCircle, Network,
   Database, Server, Cloud, ShieldAlert, Check, RefreshCw, Volume2, Flame,
-  Trophy, MessageSquare, ClipboardList, Shield
+  Trophy, MessageSquare, ClipboardList, Shield, Search, Bookmark, Brain, GraduationCap, School
 } from 'lucide-react';
 import { MainLayout } from '../components/layout/MainLayout';
 
 // Import local assets matching the user's reference design
 import logoImg from '../assets/logo.png';
-import mainImg from '../assets/main.jpg';
-import heroImg from '../assets/main.jpg'; // Panda Mascot with Vietnamese conical hat
-import screenshotHero from '../assets/29e2f86e-a1dd-49c5-b0f3-a703257f9de9.png'; // Laptop + Phone dashboard screenshot
+import mainImg from '../assets/main-removebg-preview.png';
+import heroImg from '../assets/main-removebg-preview.png'; // Panda Mascot with Vietnamese conical hat
+import screenshotHero from '../assets/29e2f86e-a1dd-49c5-b0f3-a703257f9de9-removebg-preview.png'; // Laptop + Phone dashboard screenshot
 import backgroundImg from '../assets/background.png'; // Local background image
 import showcaseVocab from '../assets/unnamed (7).jpg'; // Showcase 1 Vocabulary
 import showcaseTranslate from '../assets/unnamed (9).jpg'; // Showcase 3 Translation
 import showcaseDict from '../assets/034e8958-037f-4339-bf34-0f25604d9f64.png'; // Showcase 4 Left Dictionary
 import showcaseChat from '../assets/29e2f86e-a1dd-49c5-b0f3-a703257f9de9.png'; // Showcase 4 Right AI Chat
-import showcaseDashboard from '../assets/unnamed (10).jpg'; // Showcase 5 Left Dashboard
+import showcaseDashboard from '../assets/d6667edd-6bce-4de6-b6b4-5a9c0812edd9.png'; // Showcase 5 Left Dashboard
 import showcaseGamify from '../assets/unnamed (8).jpg'; // Showcase 5 Right Gamification/Leaderboard
+import pandaMascot from '../assets/StreakImage-removebg-preview.png'; // Mascot image for CTA section
 
 // Import achievements images
 import achievementImg1 from '../assets/1786444073342_2139156838608309818_4679679961168383332_0ca75879ac1ee6e9e4d6053ed35c4477.jpg';
@@ -154,6 +155,21 @@ const ProgressChartIcon = () => (
   </svg>
 );
 
+const HskLibraryIcon = () => (
+  <svg width="40" height="40" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="blueGradHsk" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#3b82f6" />
+        <stop offset="100%" stopColor="#1d4ed8" />
+      </linearGradient>
+    </defs>
+    <rect x="6" y="4" width="24" height="28" rx="4" fill="url(#blueGradHsk)" />
+    <path d="M12 12H24M12 18H24M12 24H18" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+    <rect x="20" y="20" width="10" height="10" rx="2" fill="#60a5fa" stroke="white" strokeWidth="1.5" />
+    <text x="21" y="27.5" fill="white" fontSize="6.5" fontWeight="bold" fontFamily="sans-serif">HSK</text>
+  </svg>
+);
+
 export function HomePage() {
   const [emailSub, setEmailSub] = useState('');
   const [subbed, setSubbed] = useState(false);
@@ -222,49 +238,53 @@ export function HomePage() {
               
               {/* Left Column Content */}
               <div className="fade-slide-up" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                  <h1 style={{ 
-                    fontSize: '4.5rem', 
-                    fontWeight: '900', 
-                    color: 'var(--color-primary)', 
-                    margin: 0, 
-                    lineHeight: '1.05',
-                    fontFamily: 'Inter, system-ui, sans-serif',
-                    letterSpacing: '-1.5px'
-                  }}>
-                    Hanora
-                  </h1>
-                  <h2 style={{ 
-                    fontSize: '2.5rem', 
-                    fontWeight: '800', 
-                    color: '#0f172a', 
-                    margin: 0, 
-                    lineHeight: '1.2',
-                    fontFamily: 'Inter, system-ui, sans-serif',
-                    letterSpacing: '-0.5px'
-                  }}>
-                    Nền tảng học tiếng Trung<br />
-                    thông minh với AI
-                  </h2>
+                <div style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  backgroundColor: 'rgba(22, 143, 239, 0.06)',
+                  border: '1px solid rgba(22, 143, 239, 0.15)',
+                  borderRadius: '99px',
+                  padding: '0.4rem 1rem',
+                  fontSize: '0.85rem',
+                  color: 'var(--color-primary)',
+                  fontWeight: '600',
+                  width: 'fit-content',
+                  marginBottom: '0.5rem'
+                }}>
+                  <Sparkles size={14} />
+                  <span>Nền tảng học tiếng Trung ứng dụng AI</span>
                 </div>
+
+                <h1 style={{ 
+                  fontSize: '3rem', 
+                  fontWeight: '900', 
+                  color: '#0f172a', 
+                  margin: 0, 
+                  lineHeight: '1.2',
+                  fontFamily: 'Inter, system-ui, sans-serif',
+                  letterSpacing: '-1px'
+                }}>
+                  Học tiếng Trung trực tiếp từ chính <span style={{ color: 'var(--color-primary)' }}>tài liệu bạn đọc</span>.
+                </h1>
                 
                 <p style={{ 
-                  color: '#64748b', 
-                  fontSize: '1rem', 
+                  color: '#475569', 
+                  fontSize: '1.1rem', 
                   lineHeight: '1.6', 
-                  maxWidth: '460px', 
+                  maxWidth: '480px', 
                   margin: 0,
                   fontFamily: 'Inter, system-ui, sans-serif'
                 }}>
-                  Hanora giúp bạn học từ vựng, đọc hiểu tài liệu, dịch thuật và luyện tập mỗi ngày với sự hỗ trợ của trí tuệ nhân tạo.
+                  Đọc, tra cứu, lưu và ghi nhớ từ vựng ngay trên tài liệu PDF, DOCX, hình ảnh. Tất cả trong một nền tảng.
                 </p>
                 
-                <div style={{ display: 'flex', gap: '1rem', marginTop: '0.75rem' }}>
-                  <a href="https://hanora.id.vn" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-premium" style={{ padding: '0.85rem 1.75rem', borderRadius: 'var(--radius-full)' }}>
-                    Khám phá Hanora &rarr;
+                <div style={{ display: 'flex', gap: '1rem', marginTop: '0.75rem', flexWrap: 'wrap' }}>
+                  <a href="https://hanora.id.vn" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '0.85rem 1.75rem', borderRadius: '8px', fontWeight: 'bold' }}>
+                    Bắt đầu học miễn phí &rarr;
                   </a>
-                  <a href="https://hanora.id.vn" target="_blank" rel="noopener noreferrer" className="btn btn-outline btn-premium" style={{ padding: '0.85rem 1.75rem', borderRadius: 'var(--radius-full)' }}>
-                    Tìm hiểu thêm
+                  <a href="https://hanora.id.vn" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ padding: '0.85rem 1.75rem', borderRadius: '8px', fontWeight: 'bold', borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}>
+                    Khám phá Hanora
                   </a>
                 </div>
               </div>
@@ -278,29 +298,23 @@ export function HomePage() {
                   display: 'flex', 
                   alignItems: 'center'
                 }}>
-                  {/* Mockup devices showing 29e2f86e-a1dd-49c5-b0f3-a703257f9de9.png */}
-                  <div className="glow-breath" style={{ width: '100%', zIndex: 1, borderRadius: 'var(--radius-lg)', overflow: 'hidden' }}>
+                  {/* Mockup devices showing 29e2f86e-a1dd-49c5-b0f3-a703257f9de9-removebg-preview.png */}
+                  <div style={{ width: '100%', zIndex: 1 }}>
                     <img src={screenshotHero} alt="Hanora Dashboard mockup" style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain' }} />
                   </div>
                   
-                  {/* Mascot panda wearing Vietnamese conical hat (main.jpg) */}
                   <div style={{
-                    width: '200px',
-                    height: '200px',
-                    borderRadius: '50%',
+                    width: '220px',
+                    height: '220px',
                     position: 'absolute',
-                    bottom: '-40px',
-                    left: '-40px',
-                    border: '4px solid var(--white)',
-                    boxShadow: 'var(--shadow-lg)',
-                    zIndex: 10,
-                    overflow: 'hidden',
-                    backgroundColor: 'var(--white)'
+                    bottom: '-65px',
+                    left: '-65px',
+                    zIndex: 10
                   }}>
                     <img src={heroImg} alt="Panda Mascot" className="float-animation" style={{
                       width: '100%',
                       height: '100%',
-                      objectFit: 'cover'
+                      objectFit: 'contain'
                     }} />
                   </div>
 
@@ -359,13 +373,108 @@ export function HomePage() {
         </section>
 
         {/* ==========================================
-           SECTION 02: ECOSYSTEM CARDS ROW
+           SECTION 01.1: GIỚI THIỆU NGẮN VỀ NỀN TẢNG
            ========================================== */}
+        <section style={{ 
+          padding: '4rem 2rem', 
+          backgroundColor: '#ffffff', 
+          borderRadius: 'var(--radius-xl)',
+          border: '1px solid #e2e8f0',
+          boxShadow: 'var(--shadow-sm)',
+          maxWidth: '1440px',
+          margin: '2rem auto',
+          textAlign: 'left'
+        }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', alignItems: 'center' }}>
+            <div>
+              <span style={{ 
+                padding: '0.35rem 0.75rem', 
+                fontSize: '0.8rem', 
+                fontWeight: 'bold', 
+                color: 'var(--color-primary)', 
+                backgroundColor: 'rgba(22, 143, 239, 0.06)', 
+                borderRadius: 'var(--radius-full)',
+                display: 'inline-block',
+                marginBottom: '1rem'
+              }}>
+                Giới thiệu ngắn
+              </span>
+              <h2 style={{ fontSize: '2.2rem', fontWeight: '800', color: 'var(--deep-blue)', marginBottom: '1.25rem', lineHeight: '1.3' }}>
+                Một nền tảng cho cả quá trình học
+              </h2>
+              <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.05rem', lineHeight: '1.7', marginBottom: '1.25rem' }}>
+                Khi học tiếng Trung từ tài liệu thực tế, người học thường phải sử dụng nhiều công cụ khác nhau để tra từ, tìm hiểu ngữ cảnh, lưu từ và ôn tập. Hanora được xây dựng để kết nối những bước này thành một trải nghiệm liền mạch.
+              </p>
+              <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.05rem', lineHeight: '1.7', margin: 0 }}>
+                Với Hanora, người học có thể nhấn trực tiếp vào từ hoặc cụm từ trong tài liệu để xem nghĩa, Pinyin, từ loại, ví dụ và giải thích theo ngữ cảnh mà không cần rời khỏi tài liệu đang đọc.
+              </p>
+            </div>
+            
+            {/* Screenshot on the right */}
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <img src={screenshotHero} alt="Hanora Platform Screenshot" style={{ width: '100%', maxWidth: '580px', height: 'auto' }} />
+            </div>
+          </div>
+        </section>
+
+        {/* ==========================================
+           SECTION 01.2: VẤN ĐỀ CỦA NGƯỜI HỌC
+           ========================================== */}
+        <section style={{ padding: '3.5rem 0', textAlign: 'center' }}>
+          <div style={{ marginBottom: '2.5rem' }}>
+            <h2 style={{ fontSize: '2.4rem', fontWeight: '800', color: 'var(--deep-blue)', marginBottom: '0.5rem' }}>
+              Vấn đề người học tiếng Trung gặp phải
+            </h2>
+            <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.1rem' }}>
+              Những khó khăn phổ biến khiến hành trình chinh phục tiếng Trung của bạn bị gián đoạn.
+            </p>
+          </div>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '2rem', textAlign: 'left' }}>
+            {painPoints.map((item, idx) => (
+              <div 
+                key={idx} 
+                className="card scale-hover" 
+                style={{ 
+                  padding: '2.5rem 2rem', 
+                  display: 'flex', 
+                  flexDirection: 'column', 
+                  gap: '1rem', 
+                  borderRadius: 'var(--radius-xl)', 
+                  backgroundColor: '#ffffff',
+                  border: '1px solid #e2e8f0',
+                  boxShadow: 'var(--shadow-sm)'
+                }}
+              >
+                <div style={{
+                  width: '3.25rem',
+                  height: '3.25rem',
+                  borderRadius: '1rem',
+                  backgroundColor: 'rgba(239, 68, 68, 0.05)',
+                  color: '#ef4444',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <item.icon size={22} />
+                </div>
+                
+                <h3 style={{ fontSize: '1.25rem', color: 'var(--deep-blue)', fontWeight: '800', margin: 0 }}>
+                  {item.title}
+                </h3>
+                <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.9rem', lineHeight: '1.6', margin: 0 }}>
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* ==========================================
            SECTION 02: ECOSYSTEM CARDS ROW
            ========================================== */}
         <section style={{ padding: '2.5rem 0' }}>
-          <div style={{ textAlign: 'center', marginBottom: '2.25rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
             <h2 style={{ fontSize: '2.4rem', fontWeight: '800', color: 'var(--deep-blue)', marginBottom: '0.5rem', position: 'relative', display: 'inline-block' }}>
               Hệ sinh thái học tập Hanora<span style={{ color: 'var(--color-primary)', fontSize: '1.25rem', position: 'absolute', top: '2px', right: '-15px' }}>+</span>
             </h2>
@@ -374,79 +483,101 @@ export function HomePage() {
             </p>
           </div>
 
-          {/* Connected Cards Row */}
           <div style={{ position: 'relative', width: '100%', margin: '0 auto', maxWidth: '1440px' }}>
-            {/* Solid connecting line with dots between cards */}
-            <div style={{
-              position: 'absolute',
-              top: '3.125rem', /* alignment with icons */
-              left: '8%',
-              right: '8%',
-              height: '2px',
-              backgroundColor: 'rgba(22, 143, 239, 0.2)',
-              zIndex: 1,
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center'
-            }}>
-              {[1, 2, 3, 4, 5].map((_, i) => (
-                <div key={i} className="pulse-dot" style={{
-                  width: '12px',
-                  height: '12px',
-                  borderRadius: '50%',
-                  border: '2.5px solid var(--color-primary)',
-                  backgroundColor: 'var(--white)',
-                  transform: 'translateY(-0.5px)'
-                }}></div>
-              ))}
-            </div>
+            <style>{`
+              .ecosystem-flex-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1.5rem;
+                position: relative;
+                z-index: 2;
+                width: 100%;
+              }
+              .ecosystem-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                background-color: var(--color-bg-card);
+                border-radius: var(--radius-md);
+                border: 1px solid var(--color-border);
+                padding: 2.25rem 1.5rem;
+                box-shadow: var(--shadow-sm);
+                cursor: pointer;
+                position: relative;
+                transition: transform 0.2s, box-shadow 0.2s;
+                flex: 1 1 calc(25% - 1.5rem);
+                min-width: 280px;
+                max-width: 320px;
+              }
+              .ecosystem-icon-wrapper {
+                width: 3.25rem;
+                height: 3.25rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 1.25rem;
+                position: relative;
+                z-index: 3;
+              }
+              @media (max-width: 1200px) {
+                .ecosystem-card {
+                  flex: 1 1 calc(33.333% - 1.5rem);
+                  max-width: 340px;
+                }
+              }
+              @media (max-width: 900px) {
+                .ecosystem-card {
+                  flex: 1 1 calc(50% - 1.5rem);
+                  max-width: 360px;
+                }
+              }
+              @media (max-width: 600px) {
+                .ecosystem-card {
+                  flex: 1 1 100%;
+                  max-width: 100%;
+                }
+              }
+            `}</style>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '1.5rem', position: 'relative', zIndex: 2 }}>
+            <div className="ecosystem-flex-container">
               {(() => {
-                const customIcons = [DocumentSearchIcon, VocabBookIcon, FlashcardIcon, RobotIcon, PracticeIcon, ProgressChartIcon];
+                const customIcons = [
+                  DocumentSearchIcon, 
+                  VocabBookIcon, 
+                  VocabBookIcon, 
+                  FlashcardIcon, 
+                  ProgressChartIcon, 
+                  PracticeIcon, 
+                  HskLibraryIcon
+                ];
                 const cardsData = [
-                  { title: 'Tài liệu', desc: 'Đọc và tương tác với tài liệu phong phú' },
-                  { title: 'Từ vựng', desc: 'Quản lý và học từ vựng thông minh' },
-                  { title: 'Flashcard', desc: 'Học từ với phương pháp lặp lại ngắt quãng' },
-                  { title: 'AI Assistant', desc: 'Trợ lý AI hỗ trợ giải thích, phân tích và tạo nội dung' },
-                  { title: 'Luyện tập', desc: 'Đa dạng bài tập giúp củng cố kiến thức' },
-                  { title: 'Tiến trình', desc: 'Theo dõi tiến trình, XP, streak và mục tiêu' }
+                  { title: '📖 Đọc tài liệu', desc: 'Đọc trực tiếp tài liệu PDF, DOCX trên Hanora.' },
+                  { title: '🔍 Tra từ theo ngữ cảnh', desc: 'Tra nghĩa, Pinyin, từ loại và ví dụ ngay trên tài liệu đang đọc.' },
+                  { title: '📚 Kho từ vựng cá nhân', desc: 'Lưu và quản lý những từ vựng bạn muốn ghi nhớ.' },
+                  { title: '🧠 Flashcard thông minh', desc: 'Biến từ vựng đã lưu thành Flashcard và hỗ trợ ôn tập với Spaced Repetition.' },
+                  { title: '📈 Theo dõi tiến trình', desc: 'Theo dõi quá trình học và những từ vựng bạn đã tích lũy.' },
+                  { title: '🎙️ AI Pronunciation', desc: 'Coming Soon — Luyện phát âm và nhận phản hồi với công nghệ AI.' },
+                  { title: '📑 Thư viện HSK', desc: 'Tài liệu HSK theo từng cấp độ - dễ dàng tìm kiếm và lựa chọn tài liệu.' }
                 ];
                 
                 return cardsData.map((card, idx) => {
                   const IconComponent = customIcons[idx];
                   return (
-                    <div key={idx} style={{ 
-                      display: 'flex', 
-                      flexDirection: 'column', 
-                      alignItems: 'center', 
-                      textAlign: 'center', 
-                      backgroundColor: 'var(--color-bg-card)', 
-                      borderRadius: 'var(--radius-md)', 
-                      border: '1px solid var(--color-border)', 
-                      padding: '1.5rem 1rem', 
-                      boxShadow: 'var(--shadow-sm)',
-                      cursor: 'pointer',
-                      position: 'relative'
-                    }} className="ecosystem-card scale-hover">
+                    <div 
+                      key={idx} 
+                      className="ecosystem-card scale-hover"
+                    >
                       {/* Icon */}
-                      <div style={{
-                        width: '3.25rem',
-                        height: '3.25rem',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        marginBottom: '1rem',
-                        position: 'relative',
-                        zIndex: 3
-                      }}>
+                      <div className="ecosystem-icon-wrapper">
                         <IconComponent />
                       </div>
 
-                      <h3 style={{ fontSize: '1.05rem', fontWeight: 'bold', color: 'var(--deep-blue)', marginBottom: '0.5rem' }}>
+                      <h3 style={{ fontSize: '1.15rem', fontWeight: 'bold', color: 'var(--deep-blue)', marginBottom: '0.5rem', marginTop: 0 }}>
                         {card.title}
                       </h3>
-                      <p style={{ fontSize: '0.8rem', color: 'var(--color-text-secondary)', lineHeight: '1.4', margin: 0 }}>
+                      <p style={{ fontSize: '0.85rem', color: 'var(--color-text-secondary)', lineHeight: '1.5', margin: 0 }}>
                         {card.desc}
                       </p>
                     </div>
@@ -661,9 +792,9 @@ export function HomePage() {
                     </div>
 
                     <div style={{ marginTop: '0.5rem' }}>
-                      <a href="https://hanora.id.vn" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '0.85rem 1.75rem', borderRadius: 'var(--radius-full)' }}>
+                      <Link to="/solutions" className="btn btn-primary" style={{ padding: '0.85rem 1.75rem', borderRadius: 'var(--radius-full)' }}>
                         Xem chi tiết tính năng &rarr;
-                      </a>
+                      </Link>
                     </div>
                   </div>
 
@@ -678,16 +809,16 @@ export function HomePage() {
                     position: 'relative'
                   }}>
                     <img 
-                      key={activeTab}
-                      src={current.img} 
-                      alt={current.title} 
-                      style={{ 
-                        width: '100%', 
-                        height: '100%', 
-                        objectFit: 'cover', 
-                        display: 'block',
-                        animation: 'tabFadeIn 0.4s ease'
-                      }} 
+                       key={activeTab}
+                       src={current.img} 
+                       alt={current.title} 
+                       style={{ 
+                         width: '100%', 
+                         height: '100%', 
+                         objectFit: 'cover', 
+                         display: 'block',
+                         animation: 'tabFadeIn 0.4s ease'
+                       }} 
                     />
                   </div>
 
@@ -777,294 +908,95 @@ export function HomePage() {
           </div>
         </div>
 
-
-
         {/* ==========================================
-           SECTION 07.1: OUTSTANDING ACHIEVEMENTS
+           SECTION 05: WHY HANORA (DIỂM KHÁC BIỆT)
            ========================================== */}
-        <section style={{ padding: '3rem 0' }}>
-          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <h2 style={{ fontSize: '2.4rem', fontWeight: '800', color: 'var(--deep-blue)', marginBottom: '0.5rem', position: 'relative', display: 'inline-block' }}>
-              Thành tựu nổi bật<span style={{ color: 'var(--color-primary)', fontSize: '1.25rem', position: 'absolute', top: '2px', right: '-15px' }}>+</span>
+        <section style={{ padding: '4rem 0', textAlign: 'center' }}>
+          <div style={{ marginBottom: '3rem', maxWidth: '800px', margin: '0 auto 3rem' }}>
+            <h2 style={{ fontSize: '2.4rem', fontWeight: '800', color: 'var(--deep-blue)', marginBottom: '1rem' }}>
+              Vì sao chọn Hanora?
             </h2>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem', alignItems: 'stretch' }}>
-            {/* Dark Blue Card */}
-            <div className="scale-hover" style={{ 
-              background: 'linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%)', 
-              borderRadius: 'var(--radius-lg)', 
-              padding: '2.5rem 2rem', 
-              color: 'var(--white)',
-              display: 'flex', 
-              flexDirection: 'column', 
-              justifyContent: 'space-between',
-              textAlign: 'left',
-              boxShadow: 'var(--shadow-md)',
-              minHeight: '260px',
-              cursor: 'pointer'
-            }}>
-              <div>
-                {/* Trophy icon */}
-                <div style={{ marginBottom: '1.25rem' }}>
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-trophy">
-                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
-                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
-                    <path d="M4 22h16" />
-                    <path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34" />
-                    <path d="M12 2a6 6 0 0 1 6 6v3.5c0 1.66-1.34 3-3 3H9a3 3 0 0 1-3-3V8a6 6 0 0 1 6-6z" fill="#f59e0b" fillOpacity="0.2" />
-                  </svg>
-                </div>
-                <h3 style={{ fontSize: '1.6rem', fontWeight: '800', margin: '0 0 0.25rem', color: 'var(--white)' }}>Giải 3</h3>
-                <h4 style={{ fontSize: '1.1rem', fontWeight: 'bold', margin: '0 0 1rem', color: '#93c5fd' }}>FSHARK 2026</h4>
-                <p style={{ fontSize: '0.85rem', color: '#bfdbfe', lineHeight: '1.5', margin: 0 }}>
-                  Hanora đạt Giải 3 tại cuộc thi FShark của Trường Đại học FPT Đà Nẵng.
-                </p>
-              </div>
-
-              <div style={{ marginTop: '1.5rem' }}>
-                <a href="https://hanora.id.vn" target="_blank" rel="noopener noreferrer" style={{ 
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                  color: 'var(--white)',
-                  padding: '0.6rem 1.25rem',
-                  borderRadius: 'var(--radius-full)',
-                  fontSize: '0.85rem',
-                  fontWeight: 'bold',
-                  textDecoration: 'none',
-                  transition: 'background 0.2s'
-                }} className="hover-light-bg">
-                  Xem chi tiết &rarr;
-                </a>
-              </div>
-            </div>
-
-            {/* Achievement Image Cards */}
-            {[achievementImg1, achievementImg2, achievementImg3].map((img, idx) => (
-              <div key={idx} className="scale-hover" style={{ 
-                borderRadius: 'var(--radius-lg)', 
-                border: '1px solid var(--color-border)', 
-                overflow: 'hidden',
-                boxShadow: 'var(--shadow-md)',
-                backgroundColor: 'var(--white)',
-                cursor: 'pointer'
-              }}>
-                <img src={img} alt={`FShark Achievement ${idx + 1}`} style={{ 
-                  width: '100%', 
-                  height: '100%', 
-                  objectFit: 'cover', 
-                  display: 'block' 
-                }} />
-              </div>
-            ))}
-          </div>
-
-          {/* Pagination dots replica matching the mockup */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', marginTop: '2rem' }}>
-            <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--color-primary)' }}></span>
-            <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#e2e8f0' }}></span>
-            <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#e2e8f0' }}></span>
-          </div>
-        </section>
-
-        {/* ==========================================
-           SECTION 07.2: HANORA TEAM
-           ========================================== */}
-        <section style={{ padding: '3rem 0', textAlign: 'center' }}>
-          <div style={{ marginBottom: '3rem' }}>
-            <h2 style={{ fontSize: '2.4rem', fontWeight: '800', color: 'var(--deep-blue)', marginBottom: '0.5rem', position: 'relative', display: 'inline-block' }}>
-              Đội ngũ Hanora<span style={{ color: 'var(--color-primary)', fontSize: '1.25rem', position: 'absolute', top: '2px', right: '-15px' }}>+</span>
-            </h2>
-            <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.1rem' }}>
-              Những con người đam mê công nghệ và giáo dục.
+            <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.1rem', lineHeight: '1.6' }}>
+              Không chỉ là một công cụ dịch thông thường. Hanora tập trung vào một bước xa hơn: <strong>Giúp bạn biến từ vừa gặp thành từ có thể ghi nhớ.</strong>
             </p>
           </div>
+          
+          {/* Luồng quy trình thiết kế cao cấp với Card và Icon */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', alignItems: 'center', width: '100%', maxWidth: '1440px', margin: '0 auto' }}>
+            <h3 style={{ fontSize: '1rem', color: '#64748b', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>
+              HANORA KẾT NỐI LIỀN MẠCH QUY TRÌNH HỌC TẬP
+            </h3>
 
-          <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'nowrap', gap: '3rem', justifyContent: 'center', maxWidth: '1440px', margin: '0 auto', overflowX: 'auto', paddingBottom: '0.5rem' }} className="team-container-scroll">
-            <style>{`
-              .team-container-scroll::-webkit-scrollbar {
-                display: none;
-              }
-              .team-container-scroll {
-                -ms-overflow-style: none;
-                scrollbar-width: none;
-              }
-            `}</style>
-            {[
-              { name: 'Minh Tuấn', role: 'Frontend Developer', img: avatar1 },
-              { name: 'Linh Chi', role: 'Backend Developer', img: avatar2 },
-              { name: 'Đức Anh', role: 'AI Engineer', img: avatar3 },
-              { name: 'Ngọc Trâm', role: 'UI/UX Designer', img: avatar4 },
-              { name: 'Hoàng Việt', role: 'DevOps Engineer', img: avatar5 },
-              { name: 'Thảo Vy', role: 'Project Manager', img: avatar6 }
-            ].map((member, idx) => (
-              <div key={idx} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
-                <div style={{ 
-                  width: '120px', 
-                  height: '120px', 
-                  borderRadius: '50%', 
-                  overflow: 'hidden',
-                  border: '3px solid rgba(22, 143, 239, 0.1)',
-                  boxShadow: 'var(--shadow-sm)'
-                }}>
-                  <img src={member.img} alt={member.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                </div>
-                <div style={{ textAlign: 'center' }}>
-                  <h4 style={{ fontSize: '0.95rem', fontWeight: 'bold', color: 'var(--deep-blue)', margin: '0 0 0.15rem' }}>{member.name}</h4>
-                  <p style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', margin: 0 }}>{member.role}</p>
-                </div>
-              </div>
-            ))}
-
-            {/* "Xem thêm" Member Button */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
-              <Link to="/team" style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
-                <div style={{ 
-                  width: '120px', 
-                  height: '120px', 
-                  borderRadius: '50%', 
-                  backgroundColor: 'rgba(22, 143, 239, 0.05)',
-                  border: '3px dashed rgba(22, 143, 239, 0.25)',
+            {/* Step pipeline */}
+            <div style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
+              gap: '1.25rem',
+              width: '100%',
+              maxWidth: '1200px'
+            }}>
+              {[
+                { step: '01', title: 'Tài liệu thực tế', desc: 'Tải lên PDF, DOCX, ảnh giáo trình tiếng Trung.', icon: FileText, bg: 'rgba(22, 143, 239, 0.05)' },
+                { step: '02', title: 'Tra cứu ngữ cảnh', desc: 'Click để tra từ, xem phiên âm, nghĩa và ví dụ tức thì.', icon: Search, bg: 'rgba(59, 130, 246, 0.05)' },
+                { step: '03', title: 'Kho từ vựng cá nhân', desc: 'Lưu trữ các từ đã tra cứu vào từ điển của riêng bạn.', icon: Bookmark, bg: 'rgba(16, 185, 129, 0.05)' },
+                { step: '04', title: 'Flashcard tự động', desc: 'Hệ thống tự động đồng bộ từ vựng đã lưu thành thẻ học.', icon: Layers, bg: 'rgba(245, 158, 11, 0.05)' },
+                { step: '05', title: 'Ôn tập SRS', desc: 'Luyện tập ngắt quãng thông minh giúp ghi nhớ dài hạn.', icon: Brain, bg: 'rgba(139, 92, 246, 0.05)' }
+              ].map((item, idx) => (
+                <div key={idx} className="card scale-hover" style={{
+                  padding: '2rem 1.5rem',
+                  backgroundColor: '#ffffff',
+                  borderRadius: '20px',
+                  border: '1px solid #e2e8f0',
+                  boxShadow: 'var(--shadow-sm)',
                   display: 'flex',
+                  flexDirection: 'column',
                   alignItems: 'center',
-                  justifyContent: 'center',
-                  color: 'var(--color-primary)',
-                  transition: 'background-color 0.2s, border-color 0.2s'
-                }} className="team-more-circle">
-                  <Users size={28} />
+                  gap: '1rem',
+                  position: 'relative'
+                }}>
+                  {/* Step bubble */}
+                  <span style={{ 
+                    position: 'absolute', 
+                    top: '0.75rem', 
+                    right: '0.75rem', 
+                    fontSize: '0.8rem', 
+                    fontWeight: '800', 
+                    color: 'var(--color-primary)',
+                    opacity: 0.5
+                  }}>
+                    {item.step}
+                  </span>
+
+                  {/* Icon container */}
+                  <div style={{
+                    width: '3.25rem',
+                    height: '3.25rem',
+                    borderRadius: '50%',
+                    backgroundColor: item.bg,
+                    color: 'var(--color-primary)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}>
+                    <item.icon size={20} />
+                  </div>
+
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+                    <h4 style={{ fontSize: '1.05rem', fontWeight: 'bold', color: 'var(--deep-blue)', margin: 0 }}>
+                      {item.title}
+                    </h4>
+                    <p style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: '1.5', margin: 0 }}>
+                      {item.desc}
+                    </p>
+                  </div>
                 </div>
-                <div style={{ textAlign: 'center' }}>
-                  <h4 style={{ fontSize: '0.95rem', fontWeight: 'bold', color: 'var(--color-primary)', margin: '0 0 0.15rem' }}>Xem thêm</h4>
-                  <p style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', margin: 0 }}>Thành viên</p>
-                </div>
-              </Link>
+              ))}
             </div>
+
           </div>
         </section>
 
-        {/* ==========================================
-           SECTION 07.3: WHY HANORA
-           ========================================== */}
-        <section style={{ padding: '3.5rem 0', textAlign: 'center' }}>
-          <style>{`
-            .why-card {
-              transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-            }
-            .why-card-0 {
-              background-color: rgba(59, 130, 246, 0.02) !important;
-              border-color: rgba(59, 130, 246, 0.12) !important;
-            }
-            .why-card-0:hover {
-              transform: translateY(-5px);
-              background: linear-gradient(135deg, rgba(59, 130, 246, 0.07) 0%, rgba(99, 102, 241, 0.07) 100%) !important;
-              border-color: rgba(59, 130, 246, 0.35) !important;
-              box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.15) !important;
-            }
-            
-            .why-card-1 {
-              background-color: rgba(168, 85, 247, 0.02) !important;
-              border-color: rgba(168, 85, 247, 0.12) !important;
-            }
-            .why-card-1:hover {
-              transform: translateY(-5px);
-              background: linear-gradient(135deg, rgba(168, 85, 247, 0.07) 0%, rgba(236, 72, 153, 0.07) 100%) !important;
-              border-color: rgba(168, 85, 247, 0.35) !important;
-              box-shadow: 0 10px 25px -5px rgba(168, 85, 247, 0.15) !important;
-            }
 
-            .why-card-2 {
-              background-color: rgba(249, 115, 22, 0.02) !important;
-              border-color: rgba(249, 115, 22, 0.12) !important;
-            }
-            .why-card-2:hover {
-              transform: translateY(-5px);
-              background: linear-gradient(135deg, rgba(249, 115, 22, 0.07) 0%, rgba(234, 179, 8, 0.07) 100%) !important;
-              border-color: rgba(249, 115, 22, 0.35) !important;
-              box-shadow: 0 10px 25px -5px rgba(249, 115, 22, 0.15) !important;
-            }
-
-            .why-card-3 {
-              background-color: rgba(20, 184, 166, 0.02) !important;
-              border-color: rgba(20, 184, 166, 0.12) !important;
-            }
-            .why-card-3:hover {
-              transform: translateY(-5px);
-              background: linear-gradient(135deg, rgba(20, 184, 166, 0.07) 0%, rgba(34, 197, 94, 0.07) 100%) !important;
-              border-color: rgba(20, 184, 166, 0.35) !important;
-              box-shadow: 0 10px 25px -5px rgba(20, 184, 166, 0.15) !important;
-            }
-          `}</style>
-          
-          <h2 style={{ fontSize: '2.4rem', fontWeight: '800', color: 'var(--deep-blue)', marginBottom: '2.5rem' }}>Why Hanora</h2>
-          
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '2rem', textAlign: 'left' }}>
-            {[
-              { 
-                title: 'AI Tiên Tiến', 
-                desc: 'Hệ thống học trợ lý, câu dẫn dắt thông minh.', 
-                icon: Sparkles,
-                iconBg: 'linear-gradient(135deg, #3b82f6 0%, #6366f1 100%)'
-              },
-              { 
-                title: 'Cá Nhân Hóa', 
-                desc: 'Đo lường thời gian học tập cá nhân.', 
-                icon: Activity,
-                iconBg: 'linear-gradient(135deg, #a855f7 0%, #ec4899 100%)'
-              },
-              { 
-                title: 'Hiệu Quả Cao', 
-                desc: 'Nhớ lâu hơn qua phương pháp ôn tập ngắt quãng.', 
-                icon: Flame,
-                iconBg: 'linear-gradient(135deg, #f97316 0%, #eab308 100%)'
-              },
-              { 
-                title: 'Cộng Đồng Hỗ Trợ', 
-                desc: 'Học tập chia sẻ cùng cộng đồng đạt mục tiêu.', 
-                icon: Users,
-                iconBg: 'linear-gradient(135deg, #14b8a6 0%, #22c55e 100%)'
-              }
-            ].map((item, idx) => (
-              <div 
-                key={idx} 
-                className={`card why-card why-card-${idx}`} 
-                style={{ 
-                  padding: '2.5rem 2rem', 
-                  display: 'flex', 
-                  flexDirection: 'column', 
-                  gap: '1rem', 
-                  borderRadius: 'var(--radius-xl)', 
-                  cursor: 'pointer',
-                  position: 'relative',
-                  overflow: 'hidden'
-                }}
-              >
-                {/* Icon Container */}
-                <div style={{
-                  width: '3.25rem',
-                  height: '3.25rem',
-                  borderRadius: '1rem',
-                  background: item.iconBg,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: 'white',
-                  boxShadow: '0 4px 10px rgba(0,0,0,0.05)'
-                }}>
-                  <item.icon size={22} />
-                </div>
-                
-                <h3 style={{ fontSize: '1.25rem', color: 'var(--deep-blue)', fontWeight: '800', margin: '0.25rem 0 0' }}>
-                  {item.title}
-                </h3>
-                <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.9rem', lineHeight: '1.6', margin: 0 }}>
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
 
         {/* ==========================================
            SECTION 08: CTA SECTION WITH MASCOT
@@ -1086,7 +1018,7 @@ export function HomePage() {
         }}>
           {/* Background overlay details */}
           <div style={{ position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, backgroundColor: 'rgba(255, 255, 255, 0.05)', pointerEvents: 'none' }}></div>
- 
+  
           <div className="cta-grid-container" style={{ position: 'relative', zIndex: 1 }}>
             <style>{`
               .cta-grid-container {
@@ -1114,10 +1046,10 @@ export function HomePage() {
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <h2 style={{ fontSize: '2.5rem', fontWeight: '900', color: 'var(--white)', lineHeight: 1.25 }}>
-                Bắt đầu hành trình chinh phục tiếng Trung ngay hôm nay!
+                Đừng chỉ tra từ. Hãy học từ đó.
               </h2>
               <p style={{ color: '#bfdbfe', fontSize: '1.1rem', lineHeight: '1.6', margin: 0 }}>
-                Gia nhập cộng đồng Hanora và trải nghiệm học tập học hiệu quả.
+                Biến chính những tài liệu bạn đang đọc thành tài liệu học tập của riêng bạn cùng Hanora.
               </p>
               <div>
                 <a href="https://hanora.id.vn" target="_blank" rel="noopener noreferrer" className="cta-button-clear" style={{ 
@@ -1132,22 +1064,20 @@ export function HomePage() {
                   boxShadow: '0 4px 10px rgba(0,0,0,0.06)',
                   textAlign: 'center'
                 }}>
-                  Bắt đầu ngay
+                  Bắt đầu học
                 </a>
               </div>
             </div>
- 
+  
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <img src={mainImg} alt="Panda Mascot" className="float-animation" style={{
-                width: '170px',
-                height: '170px',
-                borderRadius: '50%',
-                objectFit: 'cover',
-                border: '4px solid rgba(255,255,255,0.3)',
-                boxShadow: 'var(--shadow-lg)'
+              <img src={pandaMascot} alt="Panda Mascot" className="float-animation" style={{
+                width: '180px',
+                height: 'auto',
+                display: 'block',
+                objectFit: 'contain'
               }} />
             </div>
- 
+  
           </div>
         </section>
 

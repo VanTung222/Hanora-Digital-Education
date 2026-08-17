@@ -7,10 +7,7 @@ export function Header() {
   const navItems = [
     { label: "Trang chủ", path: "/" },
     { label: "Giới thiệu", path: "/about" },
-    { label: "Giải pháp", path: "/solutions" },
-    { label: "Công nghệ", path: "/technology" },
-    { label: "Thành tựu", path: "/achievements" },
-    { label: "Đội ngũ", path: "/team" },
+    { label: "Tính năng", path: "/solutions" },
     { label: "Liên hệ", path: "/contact" },
   ];
 

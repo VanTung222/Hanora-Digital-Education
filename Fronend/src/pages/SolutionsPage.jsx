@@ -7,13 +7,14 @@ import { MainLayout } from "../components/layout/MainLayout";
 
 // Import local assets matching the user's reference design
 import heroIllustration from "../assets/b932b4fd-e75b-4077-af7a-42a92f49ded6.png";
-import showcaseVocab from "../assets/unnamed (1).jpg";
-import showcaseFlashcard from "../assets/unnamed (2).jpg";
+import showcaseVocab from "../assets/unnamed (7).jpg";
+import showcaseFlashcard from "../assets/unnamed (6).jpg";
 import showcaseTranslate from "../assets/unnamed (3).jpg";
 import showcasePronounce from "../assets/LandingPage3.png";
-import showcaseSRS from "../assets/unnamed (6).jpg";
+import showcaseSRS from "../assets/034e8958-037f-4339-bf34-0f25604d9f64.png";
 import showcaseDashboard from "../assets/d6667edd-6bce-4de6-b6b4-5a9c0812edd9.png";
-import pandaMascot from "../assets/StreakImage.png";
+import showcaseHsk from "../assets/unnamed (9).jpg";
+import pandaMascot from "../assets/StreakImage-removebg-preview.png";
 
 export function SolutionsPage() {
   useEffect(() => {
@@ -57,63 +58,97 @@ export function SolutionsPage() {
     };
   }, []);
 
-  const topShowcases = [
+  const showcases = [
     {
       num: "01",
-      title: "Quản lý từ vựng thông minh",
-      desc: "Tạo và sắp xếp danh sách từ vựng theo chủ đề, theo cấp độ. Gợi ý ôn tập hợp lý giúp bạn ghi nhớ lâu hơn và sử dụng tự nhiên hơn.",
-      image: showcaseVocab,
+      title: "📖 Đọc tài liệu",
+      subtitle: "Học tiếng Trung ngay trên tài liệu của bạn.",
+      desc: "Tải lên PDF, DOCX hoặc hình ảnh và biến mọi tài liệu tiếng Trung thành không gian học tập tương tác.",
+      image: showcaseTranslate,
       features: [
-        { label: "Thêm từ mới dễ dàng", icon: PlusCircle },
-        { label: "Phân loại theo chủ đề", icon: Layers },
-        { label: "Ôn tập theo chu kỳ", icon: RotateCw },
-        { label: "Theo dõi tiến độ học", icon: TrendingUp }
+        { label: "Tải lên tài liệu cá nhân", icon: PlusCircle },
+        { label: "Đọc trực tiếp trên Hanora", icon: BookOpen },
+        { label: "Nhận diện văn bản từ hình ảnh bằng OCR", icon: Camera },
+        { label: "Nhấn vào từ hoặc cụm từ để tra cứu", icon: Bookmark }
       ]
     },
     {
       num: "02",
-      title: "Hệ thống Flashcard cao cấp",
-      desc: "Học tập hiệu quả với thẻ nhớ ảo (Flashcard) thông minh: lật thẻ, nghe phát âm, kiểm tra nghĩa và ví dụ thực tế.",
-      image: showcaseFlashcard,
+      title: "🔍 Tra từ theo ngữ cảnh",
+      subtitle: "Không chỉ biết nghĩa – hãy hiểu cách dùng.",
+      desc: "Hanora cung cấp thông tin từ vựng ngay trong ngữ cảnh của tài liệu, giúp việc đọc và hiểu tiếng Trung trở nên dễ dàng hơn.",
+      image: showcaseVocab,
       features: [
-        { label: "Hình ảnh sinh động", icon: Image },
-        { label: "Phát âm chuẩn", icon: Volume2 },
-        { label: "Ví dụ thực tế", icon: BookOpen },
-        { label: "Chế độ học linh hoạt", icon: Zap }
+        { label: "Tra từ ngay trên tài liệu đang đọc", icon: BookOpen },
+        { label: "Xem nghĩa tiếng Việt và Pinyin", icon: HelpCircle },
+        { label: "Xem từ loại và câu ví dụ thực tế", icon: Sparkles },
+        { label: "Hiểu cách sử dụng từ trong ngữ cảnh", icon: Shield }
       ]
     },
     {
       num: "03",
-      title: "Dịch thuật & Học từ tài liệu",
-      desc: "Dịch văn bản, tài liệu, hình ảnh nhanh chóng, chính xác. Học từ mới ngay trong tài liệu bạn quan tâm với công cụ hỗ trợ thông minh.",
-      image: showcaseTranslate,
+      title: "📚 Kho từ vựng cá nhân",
+      subtitle: "Tạo kho từ vựng của riêng bạn.",
+      desc: "Mỗi từ bạn tra cứu đều có thể được lưu lại, giúp bạn xây dựng một hệ thống từ vựng cá nhân từ chính những tài liệu mình đang học.",
+      image: showcaseSRS,
       features: [
-        { label: "Dịch văn bản, tài liệu", icon: FileText },
-        { label: "Dịch hình ảnh (OCR)", icon: Camera },
-        { label: "Giải thích chi tiết", icon: HelpCircle },
-        { label: "Lưu & quản lý dễ dàng", icon: Bookmark }
+        { label: "Tự động lưu từ đã tra cứu", icon: Bookmark },
+        { label: "Tìm kiếm và quản lý từ vựng lưu trữ", icon: Layers },
+        { label: "Phân loại từ vựng theo nhu cầu", icon: PlusCircle },
+        { label: "Xây dựng kho từ vựng cá nhân", icon: BookOpen }
       ]
-    }
-  ];
-
-  const gridShowcases = [
+    },
     {
       num: "04",
-      title: "Luyện phát âm & Phản hồi",
-      desc: "AI chấm điểm phát âm chi tiết, chỉ ra lỗi sai và hướng dẫn cách sửa để bạn nói chuẩn hơn.",
-      image: showcasePronounce
+      title: "🧠 Flashcard",
+      subtitle: "Biến những từ đã học thành bộ Flashcard của riêng bạn.",
+      desc: "Hanora kết nối quá trình đọc và tra từ với việc ôn tập, giúp bạn ghi nhớ từ vựng hiệu quả hơn.",
+      image: showcaseFlashcard,
+      features: [
+        { label: "Tạo Flashcard từ từ vựng đã lưu", icon: PlusCircle },
+        { label: "Ôn tập ngay trên nền tảng Hanora", icon: BookOpen },
+        { label: "Xem nghĩa, Pinyin và ví dụ", icon: HelpCircle },
+        { label: "Ôn tập theo phương pháp Spaced Repetition", icon: RotateCw }
+      ]
     },
     {
       num: "05",
-      title: "Thuật toán SRS hiệu quả",
-      desc: "Hệ thống ôn tập thông minh dựa trên thuật toán SRS giúp ghi nhớ lâu hơn, tiết kiệm thời gian.",
-      image: showcaseSRS
+      title: "📈 Theo dõi tiến trình",
+      subtitle: "Biết mình đã đi được bao xa trên hành trình học tiếng Trung.",
+      desc: "Theo dõi quá trình học tập và duy trì thói quen học mỗi ngày với hệ thống tiến trình của Hanora.",
+      image: showcaseDashboard,
+      features: [
+        { label: "Theo dõi tiến độ học tập chi tiết", icon: TrendingUp },
+        { label: "Duy trì Learning Streak liên tục", icon: Zap },
+        { label: "Theo dõi quá trình tích lũy từ vựng", icon: Bookmark },
+        { label: "Quản lý nội dung đang học tập", icon: Layers }
+      ]
     },
     {
       num: "06",
-      title: "Quản lý tiến độ bằng dữ liệu",
-      desc: "Biểu đồ trực quan giúp bạn theo dõi tiến độ học, các điểm điểm mạnh - yếu để cải thiện hiệu quả.",
-      image: showcaseDashboard
+      title: "🎙️ Luyện phát âm AI",
+      subtitle: "Luyện nói và nhận phản hồi từ AI.",
+      desc: "Hanora hỗ trợ người học cải thiện phát âm thông qua công nghệ nhận diện giọng nói và phản hồi cá nhân hóa.",
+      image: showcasePronounce,
+      features: [
+        { label: "Nghe câu mẫu phát âm chuẩn", icon: Volume2 },
+        { label: "Ghi âm giọng nói thực tế", icon: Shield },
+        { label: "Nhận đánh giá độ chính xác, trôi chảy", icon: Sparkles },
+        { label: "Kiểm tra thanh điệu, ngữ điệu, và gợi ý", icon: HelpCircle }
+      ]
+    },
+    {
+      num: "07",
+      title: "📑 Thư viện HSK",
+      subtitle: "Kho tài liệu học tập theo từng cấp độ.",
+      desc: "Dễ dàng tìm kiếm và lựa chọn tài liệu phù hợp với trình độ, từ đó học và luyện tập theo mục tiêu HSK.",
+      image: showcaseHsk,
+      features: [
+        { label: "Tìm tài liệu theo cấp độ HSK 1 - 6", icon: Layers },
+        { label: "Lựa chọn nội dung phù hợp trình độ", icon: PlusCircle },
+        { label: "Đọc và học trực tiếp trên tài liệu", icon: BookOpen },
+        { label: "Kết hợp với tra từ, lưu từ và Flashcard", icon: Bookmark }
+      ]
     }
   ];
 
@@ -575,7 +610,7 @@ export function SolutionsPage() {
             padding: "2rem 0",
           }}
         >
-          {topShowcases.map((show, idx) => {
+          {showcases.map((show, idx) => {
             const isEven = idx % 2 === 0;
             return (
               <section
@@ -621,6 +656,19 @@ export function SolutionsPage() {
                   >
                     {show.title}
                   </h2>
+
+                  {show.subtitle && (
+                    <h4 style={{
+                      fontSize: "1.2rem",
+                      fontWeight: "700",
+                      color: "var(--color-primary)",
+                      margin: "0.15rem 0 0.5rem 0",
+                      lineHeight: "1.4"
+                    }}>
+                      {show.subtitle}
+                    </h4>
+                  )}
+                  
                   <p
                     style={{
                       color: "var(--color-text-secondary)",
@@ -701,65 +749,6 @@ export function SolutionsPage() {
               </section>
             );
           })}
-        </div>
-
-        {/* ==========================================
-           SECTION 02B: 3-COLUMN FEATURES GRID (04-06)
-           ========================================== */}
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
-          gap: '2rem', 
-          padding: '4rem 0 2rem' 
-        }}>
-          {gridShowcases.map((show, idx) => (
-            <div key={idx} className="solutions-showcase is-visible card scale-hover" style={{
-              backgroundColor: '#ffffff',
-              border: '1px solid #e2e8f0',
-              borderRadius: '20px',
-              padding: '2rem 1.75rem',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '1.25rem',
-              boxShadow: '0 4px 25px rgba(0,0,0,0.015)',
-              textAlign: 'left'
-            }}>
-              <span style={{ 
-                padding: '0.25rem 0.75rem', 
-                backgroundColor: 'rgba(22, 143, 239, 0.08)', 
-                color: 'var(--color-primary)', 
-                borderRadius: '99px', 
-                fontSize: '0.8rem', 
-                fontWeight: 'bold', 
-                width: 'fit-content'
-              }}>
-                {show.num}
-              </span>
-              
-              <h3 style={{ fontSize: '1.35rem', fontWeight: '800', color: '#0f172a', margin: 0 }}>
-                {show.title}
-              </h3>
-              
-              <p style={{ color: '#64748b', fontSize: '0.875rem', lineHeight: '1.65', margin: 0, minHeight: '60px' }}>
-                {show.desc}
-              </p>
-              
-              {/* Image Container with Screenshot look */}
-              <div style={{ 
-                border: '1px solid #f1f5f9', 
-                borderRadius: '12px', 
-                overflow: 'hidden', 
-                boxShadow: '0 4px 15px rgba(0,0,0,0.01)',
-                marginTop: 'auto'
-              }}>
-                <img 
-                  src={show.image} 
-                  alt={show.title} 
-                  style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} 
-                />
-              </div>
-            </div>
-          ))}
         </div>
 
         {/* ==========================================
