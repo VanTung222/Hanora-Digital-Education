@@ -232,9 +232,17 @@ export function HomePage() {
                   margin-right: -4rem !important;
                 }
               }
+              @media (max-width: 767px) {
+                .hero-mascot-container {
+                  width: 120px !important;
+                  height: 120px !important;
+                  bottom: -35px !important;
+                  left: -20px !important;
+                }
+              }
             `}</style>
             
-            <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', width: '100%', alignItems: 'center', textAlign: 'left' }}>
+            <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem', width: '100%', alignItems: 'center', textAlign: 'left' }}>
               
               {/* Left Column Content */}
               <div className="fade-slide-up" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
@@ -303,7 +311,7 @@ export function HomePage() {
                     <img src={screenshotHero} alt="Hanora Dashboard mockup" style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain' }} />
                   </div>
                   
-                  <div style={{
+                  <div className="hero-mascot-container" style={{
                     width: '220px',
                     height: '220px',
                     position: 'absolute',
@@ -385,7 +393,7 @@ export function HomePage() {
           margin: '2rem auto',
           textAlign: 'left'
         }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', alignItems: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem', alignItems: 'center' }}>
             <div>
               <span style={{ 
                 padding: '0.35rem 0.75rem', 
@@ -771,7 +779,7 @@ export function HomePage() {
                   }
                 `}</style>
                 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', alignItems: 'center' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem', alignItems: 'center' }}>
                   
                   {/* Left Column Content */}
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', textAlign: 'left' }}>

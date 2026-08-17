@@ -44,7 +44,7 @@ export function AboutPage() {
             <style>{`
               .about-hero-grid {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
                 gap: 2rem;
                 width: 100%;
                 align-items: center;
@@ -52,7 +52,7 @@ export function AboutPage() {
               }
               @media (min-width: 992px) {
                 .about-hero-grid {
-                  grid-template-columns: 3.5fr 6.5fr !important;
+                  grid-template-columns: 4fr 6fr !important;
                 }
                 .about-hero-right-col {
                   margin-right: -4rem !important;
@@ -73,23 +73,31 @@ export function AboutPage() {
                     position: 'relative',
                     display: 'inline-block'
                   }}>
-                    Giới thiệu Hanora<span style={{ color: 'var(--color-primary)', fontSize: '0.9rem', marginLeft: '2px' }}>+</span>
+                    Giới thiệu Hanora <span style={{ color: 'var(--color-primary)', fontSize: '0.9rem' }}>+</span>
                   </div>
 
                   <h1 style={{ 
-                    fontSize: '2.6rem', 
-                    fontWeight: '800', 
-                    color: 'var(--deep-blue)', 
-                    lineHeight: '1.25', 
+                    fontSize: '3rem', 
+                    fontWeight: '900', 
+                    color: '#0f172a', 
+                    lineHeight: '1.2', 
                     margin: 0,
-                    letterSpacing: '-0.5px'
+                    fontFamily: 'Inter, system-ui, sans-serif',
+                    letterSpacing: '-1px'
                   }}>
                     Hanora – Học tiếng Trung<br />
-                    thông minh hơn mỗi ngày
+                    <span style={{ color: 'var(--color-primary)' }}>thông minh hơn mỗi ngày</span>.
                   </h1>
                 </div>
                 
-                <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.05rem', lineHeight: '1.65', margin: 0, maxWidth: '520px' }}>
+                <p style={{ 
+                  color: '#475569', 
+                  fontSize: '1.1rem', 
+                  lineHeight: '1.6', 
+                  margin: 0, 
+                  maxWidth: '520px',
+                  fontFamily: 'Inter, system-ui, sans-serif'
+                }}>
                   Hanora là nền tảng học tiếng Trung ứng dụng AI giúp bạn học từ vựng, đọc hiểu, dịch tài liệu và luyện tập hiệu quả trong một hệ sinh thái duy nhất.
                 </p>
                 
@@ -165,7 +173,7 @@ export function AboutPage() {
           
           <div style={{ 
             display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
             gap: '2rem', 
             textAlign: 'left', 
             alignItems: 'stretch' 
@@ -450,7 +458,7 @@ export function AboutPage() {
           {/* Subsection 2.3: Development Roadmap */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', padding: '1rem 0' }}>
             <div style={{ textAlign: 'center', position: 'relative' }}>
-              <h2 style={{ fontSize: '2.2rem', color: '#0f172a', fontWeight: '800', margin: 0, position: 'relative', display: 'inline-block' }}>
+              <h2 style={{ fontSize: '2.2rem', color: 'var(--deep-blue)', fontWeight: '800', margin: 0, position: 'relative', display: 'inline-block' }}>
                 Hành trình phát triển
                 <span style={{ color: 'var(--color-primary)', fontSize: '1.25rem', position: 'absolute', top: '-0.25rem', right: '-1rem', fontWeight: 'bold' }}>+</span>
               </h2>
@@ -560,7 +568,7 @@ export function AboutPage() {
                     </span>
                     
                     {/* Title */}
-                    <h4 style={{ fontSize: '0.95rem', fontWeight: '800', color: '#0f172a', margin: 0 }}>
+                    <h4 style={{ fontSize: '0.95rem', fontWeight: '800', color: 'var(--deep-blue)', margin: 0 }}>
                       {step.title}
                     </h4>
                     
@@ -581,7 +589,7 @@ export function AboutPage() {
            SECTION 04: THÀNH TỰU NỔI BẬT (FSHARK & METRICS)
            ========================================== */}
         <section style={{ padding: '2rem 0', width: '100%', maxWidth: '1440px', margin: '0 auto' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', width: '100%', alignItems: 'center', textAlign: 'left' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem', width: '100%', alignItems: 'center', textAlign: 'left' }}>
             
             {/* Left Column Content */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -641,7 +649,7 @@ export function AboutPage() {
           {/* Awards details grid */}
           <div style={{ 
             display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
             gap: '2.5rem', 
             alignItems: 'stretch', 
             textAlign: 'left',
@@ -784,14 +792,23 @@ export function AboutPage() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', justifyContent: 'center' }}>
+          <style>{`
+            @media (min-width: 992px) {
+              .about-team-grid {
+                grid-template-columns: repeat(4, 1fr) !important;
+              }
+            }
+          `}</style>
+          <div className="about-team-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', justifyContent: 'center' }}>
             {[
               { name: 'Nguyễn Nam Sơn', role: 'CEO', img: avatar1 },
               { name: 'Nguyễn Lê Minh Hiền', role: 'CFO', img: avatar2 },
               { name: 'Vũ Lê Duy', role: 'CISO', img: avatar3 },
               { name: 'Trần Văn Tùng', role: 'CTO', img: avatar4 },
               { name: 'Kiều Thị Thu Phương', role: 'CPO', img: avatar5 },
-              { name: 'Dương Thị Thảo Nhi', role: 'CMO', img: avatar6 }
+              { name: 'Dương Thị Thảo Nhi', role: 'CMO', img: avatar6 },
+              { name: 'Bùi Khánh Linh', role: 'CPO', img: avatar2 },
+              { name: 'Nguyễn Minh Thy', role: 'CMO', img: avatar1 }
             ].map((member, idx) => (
               <div key={idx} className="card scale-hover" style={{ 
                 display: 'flex', 
